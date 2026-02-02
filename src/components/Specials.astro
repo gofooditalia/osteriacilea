@@ -1,0 +1,82 @@
+---
+const specials = [
+    {
+        title: "Arancini al Ragù",
+        price: "€8.00",
+        description:
+            "Cuore di riso allo zafferano con ragù siciliano e piselli, fritti fino alla doratura perfetta.",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCyEGKNX9dsk3-uZazigrsa6ba2KHDB888URInyk3BelcnLt_EPkCcT4ltDwtZi-EI49MHoN_Au0HE_qgo-fDgEs7d9Xhlv0ulygEzXl8C10tdKK1nIC1EDw0U7SF94fm2Z8-Ua0aJFDoePTmTulRpQLZNfsCQ8aS1qzeFgVeQC9mf3WqPGRH5XVc4YNlhwvC3oe2XhstPLYZQnAD6A2mF7xO43TsGzmeZdVkGwwSR7Z8U_WP-48TIHPVr-rkZLr7Sd3SFZGXfCVcA",
+    },
+    {
+        title: "Pasta con le Sarde",
+        price: "€14.00",
+        description:
+            "Un classico palermitano con sarde fresche, finocchietto selvatico, uvetta e pinoli.",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDjeWKK6zN0wFh2m9U6F6JGYBXzRozBdc7wit5-5d90w0bsn42WCCTV8oCMZTZGWb692KYr4nxgQH9-rsT3Mb67RGX2jCgmYpaE47wbVUvW0NyAQl1PyS-9bhdaYc-yHicfDfjr1lB9p_DBVd9sZD9WxMcXBxao0FwNt8vxdRdfj7CmE6xXOE3MUH1FRvSTXB74jmQDPp78Odd97cA6ljJrHUwNSLeWlPletjnowyoMD76HzP0zeDtBNvAT-Z5yTlB0A66KwXbFV9U",
+    },
+    {
+        title: "Cannoli Siciliani",
+        price: "€6.00",
+        description:
+            "Cialda croccante riempita al momento con crema di ricotta di pecora e granella di pistacchio.",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAGkb--j7gCOhVMn0o_gtv30x3BWWODejnwpLUH-2aid8bV7_69EIBfdAjvCbtkx52PFcSvuEb-gQYlZzfE-SNqIAXfGUifZ4CGwZBD5JAJbgTn0HImG5jW1AfXJGCUIK2MFlPqQcI20Fn1yk9MLsChNaS5LM9hs3e4ilofmUMTYyOqs96TzYOEHKeGDrQyBDSQvEWz2iiMJZbpvVeEAyEMAv8wYERssyHaR25-c76t024bhmrS3B9W8ZsBB13kRHWo-jjtWqx5k8U",
+    },
+];
+---
+
+<section id="specials" class="bg-[#f0ece7] dark:bg-[#2a1b18] py-20">
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-12 space-y-4">
+            <h2
+                class="text-4xl md:text-5xl font-bold tracking-tight text-neutral-text dark:text-white font-display"
+            >
+                I Nostri Piatti del Giorno
+            </h2>
+            <p
+                class="text-[#896861] dark:text-[#a1928e] max-w-xl mx-auto italic text-lg"
+            >
+                Freschezza quotidiana selezionata dai mercati locali ogni
+                mattina.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {
+                specials.map((item) => (
+                    <div class="group flex flex-col gap-4 bg-bg-light dark:bg-bg-dark p-4 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300">
+                        <div class="w-full aspect-square rounded-lg overflow-hidden">
+                            <div
+                                class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                                style={`background-image: url('${item.image}')`}
+                            >
+                                <div class="w-full h-full bg-black/0 group-hover:bg-black/10 transition-all" />
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <div class="flex justify-between items-center">
+                                <p class="text-neutral-text dark:text-white text-xl font-bold">
+                                    {item.title}
+                                </p>
+                                <span class="text-primary font-bold">
+                                    {item.price}
+                                </span>
+                            </div>
+                            <p class="text-[#896861] dark:text-[#a1928e] text-sm leading-normal">
+                                {item.description}
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+
+        <div class="mt-12 text-center">
+            <a
+                href="/menu"
+                class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white px-10 py-3 rounded-lg font-bold transition-all uppercase tracking-wider text-sm"
+            >
+                Visualizza l'intero Menu
+            </a>
+        </div>
+    </div>
+</section>

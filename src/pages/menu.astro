@@ -1,0 +1,539 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+const categories = [
+    {
+        id: "antipasti",
+        label: "Antipasti",
+        icon: "restaurant",
+        subtitle: "Appetizers",
+    },
+    {
+        id: "primi",
+        label: "Primi Piatti",
+        icon: "dinner_dining",
+        subtitle: "First Courses",
+    },
+    {
+        id: "secondi",
+        label: "Secondi Piatti",
+        icon: "set_meal",
+        subtitle: "Main Courses",
+    },
+    {
+        id: "contorni",
+        label: "Contorni",
+        icon: "filter_vintage",
+        subtitle: "Side Dishes",
+    },
+    {
+        id: "dolci",
+        label: "Dolci & Dessert",
+        icon: "icecream",
+        subtitle: "Desserts",
+    },
+];
+
+const menuData = {
+    antipasti: [
+        {
+            title: "Zucca in Agrodolce",
+            price: "€5",
+            description: "Zucca, aceto, zucchero, olio, aglio e menta",
+            english:
+                "Sweet and Sour Pumpkin with vinegar, sugar, garlic and mint",
+            tags: ["Vegetariano"],
+        },
+        {
+            title: "Primosale Fritto con Acciuga",
+            price: "€5",
+            description: "Primosale, farina, pangrattato, uova e acciuga",
+            english: "Fried Primosale cheese with anchovy",
+            tags: ["Pesce"],
+        },
+        {
+            title: "Sarde a Beccafico",
+            price: "€7",
+            description:
+                "Sarde, pangrattato, uva passolina e pinoli, agrumi, cipolla e alloro",
+            english:
+                "Traditional Sicilian stuffed sardines with raisins, pine nuts and citrus",
+            tags: ["Pesce", "Tradizione"],
+        },
+        {
+            title: "Insalata di Aringa",
+            price: "€6",
+            description:
+                "Aringa, arance, cipolla scalogna, olive, finocchio, olio, sale e pepe",
+            english: "Herring salad with oranges, shallots, olives and fennel",
+            tags: ["Pesce"],
+        },
+        {
+            title: "Tris di Paninetti",
+            price: "€6",
+            description:
+                "Assaggio di street food palermitano: milza, panelle, mortadella con pepe, strutto e pistacchio",
+            english: "Trio of traditional Palermo street food sliders",
+            tags: ["Street Food"],
+        },
+        {
+            title: "Polpette di Sarde in Agrodolce",
+            price: "€7",
+            description:
+                "Sarde, pangrattato, cipolla, passolini e pinoli, formaggio, menta, zucchero, aceto, pepe",
+            english:
+                "Sweet and sour sardine meatballs with raisins and pine nuts",
+            tags: ["Pesce"],
+        },
+        {
+            title: "Zuppa di Cozze / Cozze Scoppiate",
+            price: "€7",
+            description:
+                "Cozze, salsa di pomodoro, aglio, olio, prezzemolo, sale e pepe",
+            english: "Mussel soup or sautéed mussels in tomato sauce",
+            tags: ["Pesce"],
+        },
+        {
+            title: "Caponata di Melanzane",
+            price: "€5",
+            description:
+                "Melanzane, salsa di pomodoro, capperi, cipolla, sedano, olive, aceto e zucchero",
+            english:
+                "Classic Sicilian eggplant caponata in sweet and sour sauce",
+            tags: ["Vegetariano", "Solfiti"],
+        },
+        {
+            title: "Trippa al Sugo",
+            price: "€6",
+            description:
+                "Trippa, salsa di pomodoro, sedano, cipolla, carote, olio, pepe",
+            english: "Tripe cooked in a rich tomato sauce with vegetables",
+        },
+        {
+            title: "Insalata di Musso e Carcagnolo",
+            price: "€5",
+            description:
+                "Vitello, carota, sedano, cipolla, olive, sale, olio e pepe",
+            english:
+                "Traditional boiled beef snout and nerve salad with vegetables",
+            tags: ["Tradizione", "Solfiti"],
+        },
+        {
+            title: "Involtini di Melanzane",
+            price: "€5",
+            description:
+                "Melanzane, pangrattato, formaggio, passolina e pinoli, salsa di pomodoro, pepe, sale",
+            english:
+                "Eggplant rolls stuffed with breadcrumbs, cheese, raisins and pine nuts",
+            tags: ["Vegetariano"],
+        },
+        {
+            title: "Tagliere Cilea",
+            price: "€15",
+            description:
+                "Selezione della casa: caponata, insalata di musso, primosale fritto, pomodori secchi, salumi e funghi sott'olio",
+            english:
+                "House platter with caponata, beef salad, fried cheese, cold cuts and appetizers",
+            isPremium: true,
+            tags: ["Chef's Choice", "Consigliato"],
+        },
+    ],
+    primi: [
+        {
+            title: "Anchova",
+            price: "€8",
+            description:
+                "Margherita, concentrato di pomodoro, aglio, acciuga, passolina e pinoli, olio, sale e pepe, pangrattato",
+            english:
+                "Traditional Sicilian pasta with tomato paste, garlic, anchovies, raisins, pine nuts and breadcrumbs",
+            tags: ["Tradizione"],
+        },
+        {
+            title: "Broccoli Arriminati",
+            price: "€8",
+            description:
+                "Bucatini, broccoli, cipolla, acciuga, passolini e pinoli, zafferano, olio, sale e pepe",
+            english:
+                "Bucatini with cauliflower, onions, anchovies, raisins, pine nuts and saffron",
+            tags: ["Tradizione", "Pasta"],
+        },
+        {
+            title: "Carrettiera",
+            price: "€7",
+            description:
+                "Margherita, aglio, acciuga, peperoncino, scorza di limone, olio e sale, pangrattato, rafano",
+            english:
+                "Ancient style pasta with garlic, anchovies, chili, lemon zest and horseradish breadcrumbs",
+        },
+        {
+            title: "Finocchietti e Triglie",
+            price: "€11",
+            description:
+                "Bucatini, triglie, finocchietti, cipolla, passolini e pinoli, uva, olio, sale e pepe, pangrattato",
+            english:
+                "Bucatini with red mullet, wild fennel, raisins, pine nuts and toasted breadcrumbs",
+            tags: ["Pesce", "Eccellenza"],
+        },
+        {
+            title: "Glassa",
+            price: "€8",
+            description:
+                "Spaghetti, vitello, patate, cipolla, carota, sedano, vino, olio, sale, pepe",
+            english:
+                "Spaghetti with glazed beef and potato ragù (traditional Palermo style)",
+            tags: ["Carne"],
+        },
+        {
+            title: "Lido",
+            price: "€9",
+            description:
+                "Casarecce, pesce spada, cozze, aglio, melanzane, menta, sardo pomodorini, olio, sale e pepe",
+            english:
+                "Casarecce with swordfish, mussels, eggplant, mint and cherry tomatoes",
+            tags: ["Pesce"],
+        },
+        {
+            title: "Norma",
+            price: "€7",
+            description:
+                "Rigatoni, salsa di pomodoro, cipolla, basilico, melanzane, ricotta salata, olio, sale e pepe",
+            english:
+                "Rigatoni with tomato sauce, eggplant and salted ricotta cheese",
+            tags: ["Vegetariano"],
+        },
+        {
+            title: "Ragù",
+            price: "€8",
+            description:
+                "Rigatoni, vitello, cipolla, sedano, carote, salsa di pomodoro, vino, olio, sale e pepe",
+            english: "Rigatoni with classic homemade beef ragù",
+        },
+        {
+            title: "Vongole",
+            price: "€15",
+            description:
+                "Spaghetti, vongole, aglio, olio, sale, peperoncino, vino",
+            english: "Spaghetti with local clams, garlic, chili and white wine",
+            tags: ["Pesce"],
+        },
+        {
+            title: "Zucchina Fritta e Formaggio",
+            price: "€7",
+            description: "Spaghetti, zucchina, aglio, menta, olio, pepe",
+            english: "Spaghetti with fried zucchini, garlic, mint and cheese",
+            tags: ["Vegetariano"],
+        },
+    ],
+    secondi: [
+        {
+            title: "Arrosto alla Palermitana",
+            price: "€12",
+            description: "Vitello, pangrattato, aromi, peperoncino, formaggio",
+            english: "Palermo-style grilled beef breaded with herbs and cheese",
+        },
+        {
+            title: "Baccalà a Sficione",
+            price: "€11",
+            description:
+                "Baccalà, farina, cipolla, salsa di pomodoro, acciuga, origano, olio, sale e pepe",
+            english:
+                "Salt cod cooked in a rich onion and tomato sauce (Sfincione style)",
+            tags: ["Pesce"],
+        },
+        {
+            title: "Calamaro Arrosto",
+            price: "€13",
+            description: "Calamaro, olio, sale, pepe, limone",
+            english: "Simply grilled squid with olive oil, salt and lemon",
+            tags: ["Pesce"],
+        },
+        {
+            title: "Frittura di Calamari",
+            price: "€13",
+            description: "Farina",
+            english: "Fried squid rings",
+            tags: ["Pesce"],
+        },
+        {
+            title: "Grigliata Mista",
+            price: "€19",
+            description:
+                "Salsiccia, salsiccia pizzaiole, puntine di maiale, spiedini, mancia e bevi, patate fritte e patate al forno",
+            english:
+                "Mixed meat grill including sausages, pork ribs, skewers and potatoes",
+            isPremium: true,
+            tags: ["Carne", "Abbondante"],
+        },
+        {
+            title: "Involtini di Carne",
+            price: "€11",
+            description:
+                "Vitello, pangrattato, formaggio, passolini e pinoli, prosciutto, sale e pepe",
+            english:
+                "Traditional Sicilian meat rolls filled with breadcrumbs, cheese and ham",
+        },
+        {
+            title: "Orata alla Griglia",
+            price: "€15",
+            description: "Orata, olio, sale, pepe, limone, patate al forno",
+            english: "Grilled sea bream with lemon and roasted potatoes",
+            tags: ["Pesce"],
+        },
+        {
+            title: "Polpette al Sugo",
+            price: "€9",
+            description:
+                "Vitello, cipolla, pangrattato, formaggio, salsa di pomodoro, basilico, uovo, olio, sale e pepe",
+            english: "Classic homemade meatballs in tomato sauce",
+        },
+        {
+            title: "Polpette di Sarde",
+            price: "€10",
+            description:
+                "Sarde, cipolla, passolini e pinoli, pangrattato, formaggio, menta, salsa di pomodoro, olio, sale e pepe",
+            english:
+                "Traditional sardine meatballs in tomato sauce with raisins and pine nuts",
+            tags: ["Pesce", "Tradizione"],
+        },
+        {
+            title: "Spada alla griglia",
+            price: "€13",
+            description: "Pesce spada, olio, sale, pepe, limone",
+            english: "Grilled swordfish with olive oil and lemon",
+            tags: ["Pesce"],
+        },
+        {
+            title: "Tagliata di Filetto",
+            price: "€16",
+            description: "Vitello alla bricola, patate al forno",
+            english: "Sliced beef fillet server with roasted potatoes",
+            tags: ["Carne", "Eccellenza"],
+        },
+    ],
+    contorni: [
+        {
+            title: "Insalata Mista",
+            price: "€3",
+            description: "Carote, cipolla",
+            english: "Mixed green salad with carrots and onions",
+            tags: ["Vegetariano"],
+        },
+        {
+            title: "Patate al Forno",
+            price: "€3",
+            description: "Patate, olio, sale, pepe, rosmarino",
+            english: "Roasted potatoes with rosemary",
+            tags: ["Vegetariano"],
+        },
+        {
+            title: "Verdure Grigliate",
+            price: "€3",
+            description: "Verdure alla griglia",
+            english: "Assorted seasonal grilled vegetables",
+            tags: ["Vegetariano"],
+        },
+    ],
+    dolci: [
+        {
+            title: "Cannolo Siciliano",
+            price: "€5",
+            description: "cannolo siciliano",
+            english: "Traditional Sicilian cannolo with fresh ricotta cheese",
+            tags: ["Tradizione"],
+        },
+        {
+            title: "Cassata al Forno",
+            price: "€5",
+            description: "Uova, latte, farina",
+            english: "Baked Sicilian cassata cake",
+            tags: ["Tradizione"],
+        },
+        {
+            title: "Parfait di Mandorle",
+            price: "€5",
+            description: "Uova, latte, frutta secca",
+            english: "Almond parfait with crunchy nut topping",
+        },
+        {
+            title: "Tiramisù",
+            price: "€5",
+            description: "Savoiardi, uova, mascarpone, caffè e cacao",
+            english: "Classic Italian Tiramisù",
+        },
+        {
+            title: "Tortino al Cioccolato",
+            price: "€5",
+            description: "Uova, farina, latte, zucchero, cacao, burro",
+            english: "Warm chocolate lava cake",
+        },
+    ],
+};
+---
+
+<Layout title="Il Menu | Osteria Cilea - Sapori della Sicilia">
+    <Navbar />
+
+    <main class="flex-1 max-w-[1200px] mx-auto w-full px-4 py-8">
+        <!-- Hero Header Image -->
+        <div class="mb-12">
+            <div
+                class="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-2xl min-h-[400px] shadow-2xl relative transition-transform duration-700 hover:scale-[1.01]"
+                style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBw3Pm_oEoVXW6psKDx1m7iZmi-_qZ1DYZPGHiosAcD39FI-y5LNunt2VAwp5vRwgbC0UMO0zQOb09VHd8dptHMerYPCkiXfSzAV-JoWHCw944FgtuUU2usuK1OuYGzdwsjy4OHDmMdV8BafcDp7EjlwqyzYi8BLqVvKI7_Hf77S7tPjXzClxWiIX9ZuAgc5oGYmZuogzMxBkPHCNNJn72a3KptHc8zUmNzTnlwcZCehuFPgq_ndISl79NE9Zn-kLUO2G6oXOdCK08");'
+            >
+                <div class="flex flex-col p-8 md:p-12">
+                    <h1
+                        class="text-white text-5xl md:text-7xl font-bold leading-tight font-display mb-4 italic"
+                    >
+                        Il Nostro Menu
+                    </h1>
+                    <p
+                        class="text-white/90 text-xl md:text-2xl max-w-2xl italic leading-relaxed"
+                    >
+                        Un viaggio tra i profumi e i sapori dell'isola, dal
+                        pistacchio di Bronte al gambero rosso di Mazara.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-12">
+            <!-- Sidebar Category Nav -->
+            <aside class="w-full lg:w-72 flex-shrink-0">
+                <div class="lg:sticky lg:top-32 space-y-8">
+                    <div
+                        class="flex flex-col gap-6 bg-white dark:bg-[#2c1a17] p-8 rounded-2xl border border-[#e6dddb] dark:border-[#3d2b27] shadow-xl"
+                    >
+                        <div>
+                            <h3
+                                class="text-primary text-lg font-bold uppercase tracking-wider mb-2"
+                            >
+                                Categorie
+                            </h3>
+                            <p
+                                class="text-[#896861] dark:text-[#a68e88] text-sm italic"
+                            >
+                                Esplora la tradizione siciliana
+                            </p>
+                        </div>
+                        <nav class="flex flex-col gap-3">
+                            {
+                                categories.map((cat) => (
+                                    <a
+                                        href={`#${cat.id}`}
+                                        class="flex items-center gap-4 px-4 py-3.5 rounded-xl text-neutral-text dark:text-white hover:bg-primary/10 hover:text-primary transition-all border border-transparent hover:border-primary/20 group"
+                                    >
+                                        <span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">
+                                            {cat.icon}
+                                        </span>
+                                        <span class="font-bold">
+                                            {cat.label}
+                                        </span>
+                                    </a>
+                                ))
+                            }
+                        </nav>
+                    </div>
+
+                    <div
+                        class="hidden lg:block opacity-60 text-center space-y-4"
+                    >
+                        <div
+                            class="w-24 h-24 mx-auto flex items-center justify-center border-2 border-dashed border-primary/30 rounded-full"
+                        >
+                            <span
+                                class="material-symbols-outlined text-4xl text-primary"
+                                >eco</span
+                            >
+                        </div>
+                        <p class="text-sm italic text-[#896861]">
+                            Ingredienti a Km Zero di nostra produzione
+                        </p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Menu Content -->
+            <div class="flex-1 space-y-20 pb-20">
+                {
+                    categories.map((cat) => (
+                        <section id={cat.id} class="scroll-mt-32">
+                            <div class="flex items-baseline gap-6 mb-10 border-b border-[#e6dddb] dark:border-[#3d2b27] pb-4">
+                                <h2 class="text-4xl md:text-5xl font-bold font-display text-primary italic">
+                                    {cat.label}
+                                </h2>
+                                <span class="text-[#896861] italic text-lg">
+                                    ({cat.subtitle})
+                                </span>
+                            </div>
+
+                            <div class="grid grid-cols-1 gap-8">
+                                {menuData[cat.id as keyof typeof menuData]?.map(
+                                    (item) => (
+                                        <div
+                                            class={`group relative parchment-bg p-8 rounded-2xl border border-[#e6dddb] dark:border-[#3d2b27] hover:shadow-2xl transition-all duration-300 ${item.isPremium ? "border-2 border-primary/40 ring-4 ring-primary/5" : ""}`}
+                                        >
+                                            {item.isPremium && (
+                                                <div class="absolute top-0 right-0">
+                                                    <div class="bg-primary text-white text-[12px] font-bold px-8 py-1.5 rotate-45 translate-x-6 translate-y-3 uppercase tracking-widest shadow-lg">
+                                                        Eccellenza
+                                                    </div>
+                                                </div>
+                                            )}
+
+                                            <div class="flex justify-between items-start mb-4">
+                                                <h4
+                                                    class={`text-2xl font-bold text-neutral-text dark:text-white ${item.isPremium ? "text-3xl" : ""}`}
+                                                >
+                                                    {item.title}
+                                                </h4>
+                                                <span class="text-primary font-bold text-2xl">
+                                                    {item.price}
+                                                </span>
+                                            </div>
+
+                                            <p class="text-neutral-text dark:text-white text-lg leading-relaxed mb-2 font-medium">
+                                                {item.description}
+                                            </p>
+
+                                            {item.english && (
+                                                <p class="text-[#896861] dark:text-[#a68e88] text-sm italic mb-6">
+                                                    {item.english}
+                                                </p>
+                                            )}
+
+                                            {item.tags && (
+                                                <div class="flex flex-wrap gap-3">
+                                                    {item.tags.map((tag) => (
+                                                        <span class="px-4 py-1.5 bg-primary/5 text-primary text-[10px] rounded-full uppercase font-bold tracking-widest border border-primary/10">
+                                                            {tag}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    ),
+                                )}
+                            </div>
+                        </section>
+                    ))
+                }
+            </div>
+        </div>
+    </main>
+
+    <Footer />
+</Layout>
+
+<style>
+    .parchment-bg {
+        background-color: #fdfaf0;
+        background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCiwd8fs5VMXt_rG0XKJ49ykk63B004UBstC2lHHIuIAZaxgFx_4htDNXjabWx41cqOFDMUlh9aCbGfSRAWPWEEWFNEFeH1Tmuez1aNzQbzpjQ177PMZJlSkq9fxzNKeQx-yKAS80fmD_-XLKCKY542rcOQ6dzmq8NsfF1d_12deLnLGdRRRIRb9V-f_aRmQ6Tptz9IYvw1TSm3hxQDvCyTfqwA-OuhHGKAylQddlbhZyba3zoDgXOsSLluq9oBzelmKHcIs9jy4VA");
+        background-size: cover;
+    }
+    :global(.dark) .parchment-bg {
+        background-color: #221310;
+        background-image: none;
+    }
+</style>

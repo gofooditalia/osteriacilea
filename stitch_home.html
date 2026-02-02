@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Osteria Cilea | Tradizione Siciliana</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec3713", // Terracotta Red
+                        "olive": "#556b2f",   // Olive Green accent
+                        "background-light": "#fdfaf6", // Warm Cream
+                        "background-dark": "#1a0f0d",  // Dark Coffee
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#181211] dark:text-[#f4f1f0] transition-colors duration-300">
+<!-- Header / TopNavBar -->
+<header class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-[#e5e1da] dark:border-[#3d2b27]">
+<div class="max-w-[1200px] mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl">restaurant</span>
+<h1 class="text-2xl font-bold tracking-tight text-[#181211] dark:text-white uppercase italic">Osteria Cilea</h1>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Il Menu</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">La Nostra Storia</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Eventi</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Contatti</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-md">
+                    Prenota un Tavolo
+                </button>
+</div>
+</div>
+</header>
+<main class="w-full">
+<!-- Hero Section -->
+<section class="relative w-full overflow-hidden">
+<div class="max-w-[1200px] mx-auto p-4 md:p-10">
+<div class="relative h-[600px] w-full rounded-xl overflow-hidden flex items-center justify-center text-center p-6 bg-cover bg-center" data-alt="Close up of steaming Pasta alla Norma with salted ricotta" style='background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDNiZWidVePkFdOEmquLr4BPhP7xMkKxb2JZUQra0aMcnoC_lWi11EbC2CSlSTCksGSnfxaeMKg8QLLBWOnmmVSjAQI3itI9aTLDjRTwB_lbZfxs4qxpnZyG-pJKxkdYz2NdeEsS-fuAHeB1UITfJp2LgE5aOeMa42FfDV-CmW51KvMuorFmuB92rjwA2N4z1MEAHkQ4X5krh6hGT3g1a1am1r4e9-1cmZVebZUeNqyhAiWwrCu8KxQynODDxDmxRBbfd0AIyIUPs8");'>
+<div class="max-w-2xl flex flex-col gap-6 animate-in fade-in duration-700">
+<h2 class="text-white text-5xl md:text-7xl font-bold leading-tight">
+                            Il Cuore della Sicilia <br/> a Tavola
+                        </h2>
+<p class="text-white/90 text-lg md:text-xl font-normal max-w-lg mx-auto italic">
+                            Ricette autentiche tramandate da generazioni, realizzate con ingredienti baciati dal sole del Mediterraneo.
+                        </p>
+<div class="flex flex-wrap justify-center gap-4 mt-4">
+<button class="bg-primary text-white px-8 py-4 rounded-lg text-lg font-bold shadow-xl hover:scale-105 transition-transform">
+                                Scopri il Menu
+                            </button>
+<button class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white/20 transition-all">
+                                La Nostra Storia
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Section: Our Story -->
+<section class="py-16 md:py-24 max-w-[1200px] mx-auto px-6 lg:px-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="space-y-6">
+<div class="inline-flex items-center gap-2 text-olive font-bold uppercase tracking-widest text-xs">
+<span class="h-px w-8 bg-olive"></span>
+                        Dal 1954
+                    </div>
+<h2 class="text-4xl md:text-5xl font-bold leading-tight text-[#181211] dark:text-white">
+                        La Nostra Storia: <br/> Passione Cilea
+                    </h2>
+<p class="text-lg text-[#896861] dark:text-[#a1928e] leading-relaxed">
+                        L'Osteria Cilea nasce dal desiderio della famiglia Cilea di portare i sapori intensi di Catania nel cuore della città. Ogni piatto è un omaggio alla terra siciliana, dalle melanzane fritte per la Norma al pistacchio di Bronte.
+                    </p>
+<p class="text-lg text-[#896861] dark:text-[#a1928e] leading-relaxed">
+                        Non è solo cucina; è un rito che celebra la lentezza, la qualità delle materie prime e il calore dell'accoglienza mediterranea.
+                    </p>
+<div class="pt-4">
+<button class="text-primary font-bold flex items-center gap-2 border-b-2 border-primary pb-1 hover:gap-4 transition-all">
+                            Scopri di più sulla nostra eredità
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-[4/5] rounded-xl bg-cover bg-center shadow-2xl relative z-10" data-alt="Rustic restaurant interior with wooden tables and vintage decor" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAsiNf-5dMMDtb0gmsa9cGzkD8vOvICn4phpR5oGLk-NYnDcuMDxl3MlZPoIBX-4FrSjxffTVaX6lFeA9_fUrEd4esk814k6BNt-YVqchboYQFn4os8y8C7ywXg5YT7Dp72s38BQvGHgsQB0deEFBu0A49G6sa9cYtUBnncGJUTs7ZHdseaXHKsNfbTNOVGYT-AMIG8569fJDsHDgl3LuTRfZrDyL8FOSH8iC5K_ds25t_OhZ9iU5H7MfbdFfzETnZPnQjnAOCyzbQ");'>
+</div>
+<!-- Decorative element -->
+<div class="absolute -bottom-6 -right-6 w-full h-full border-4 border-olive/20 rounded-xl -z-0"></div>
+</div>
+</div>
+</section>
+<!-- Section Header: Daily Specials -->
+<section class="bg-[#f0ece7] dark:bg-[#2a1b18] py-20">
+<div class="max-w-[1200px] mx-auto px-6 lg:px-10">
+<div class="text-center mb-12 space-y-4">
+<h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#181211] dark:text-white">I Nostri Piatti del Giorno</h2>
+<p class="text-[#896861] dark:text-[#a1928e] max-w-xl mx-auto italic">Freschezza quotidiana selezionata dai mercati locali ogni mattina.</p>
+</div>
+<!-- ImageGrid: Daily Specials -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Special Item 1 -->
+<div class="group flex flex-col gap-4 bg-background-light dark:bg-background-dark p-4 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg overflow-hidden" data-alt="Golden fried arancini on a white ceramic plate" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCyEGKNX9dsk3-uZazigrsa6ba2KHDB888URInyk3BelcnLt_EPkCcT4ltDwtZi-EI49MHoN_Au0HE_qgo-fDgEs7d9Xhlv0ulygEzXl8C10tdKK1nIC1EDw0U7SF94fm2Z8-Ua0aJFDoePTmTulRpQLZNfsCQ8aS1qzeFgVeQC9mf3WqPGRH5XVc4YNlhwvC3oe2XhstPLYZQnAD6A2mF7xO43TsGzmeZdVkGwwSR7Z8U_WP-48TIHPVr-rkZLr7Sd3SFZGXfCVcA");'>
+<div class="w-full h-full bg-black/0 group-hover:bg-black/20 transition-all"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center">
+<p class="text-[#181211] dark:text-white text-xl font-bold">Arancini al Ragù</p>
+<span class="text-primary font-bold">€8.00</span>
+</div>
+<p class="text-[#896861] dark:text-[#a1928e] text-sm leading-normal">
+                                Cuore di riso allo zafferano con ragù siciliano e piselli, fritti fino alla doratura perfetta.
+                            </p>
+</div>
+</div>
+<!-- Special Item 2 -->
+<div class="group flex flex-col gap-4 bg-background-light dark:bg-background-dark p-4 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg overflow-hidden" data-alt="Traditional pasta with sardines and wild fennel" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDjeWKK6zN0wFh2m9U6F6JGYBXzRozBdc7wit5-5d90w0bsn42WCCTV8oCMZTZGWb692KYr4nxgQH9-rsT3Mb67RGX2jCgmYpaE47wbVUvW0NyAQl1PyS-9bhdaYc-yHicfDfjr1lB9p_DBVd9sZD9WxMcXBxao0FwNt8vxdRdfj7CmE6xXOE3MUH1FRvSTXB74jmQDPp78Odd97cA6ljJrHUwNSLeWlPletjnowyoMD76HzP0zeDtBNvAT-Z5yTlB0A66KwXbFV9U");'>
+<div class="w-full h-full bg-black/0 group-hover:bg-black/20 transition-all"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center">
+<p class="text-[#181211] dark:text-white text-xl font-bold">Pasta con le Sarde</p>
+<span class="text-primary font-bold">€14.00</span>
+</div>
+<p class="text-[#896861] dark:text-[#a1928e] text-sm leading-normal">
+                                Un classico palermitano con sarde fresche, finocchietto selvatico, uvetta e pinoli.
+                            </p>
+</div>
+</div>
+<!-- Special Item 3 -->
+<div class="group flex flex-col gap-4 bg-background-light dark:bg-background-dark p-4 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg overflow-hidden" data-alt="Cannoli siciliani filled with fresh ricotta and pistachios" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAGkb--j7gCOhVMn0o_gtv30x3BWWODejnwpLUH-2aid8bV7_69EIBfdAjvCbtkx52PFcSvuEb-gQYlZzfE-SNqIAXfGUifZ4CGwZBD5JAJbgTn0HImG5jW1AfXJGCUIK2MFlPqQcI20Fn1yk9MLsChNaS5LM9hs3e4ilofmUMTYyOqs96TzYOEHKeGDrQyBDSQvEWz2iiMJZbpvVeEAyEMAv8wYERssyHaR25-c76t024bhmrS3B9W8ZsBB13kRHWo-jjtWqx5k8U");'>
+<div class="w-full h-full bg-black/0 group-hover:bg-black/20 transition-all"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center">
+<p class="text-[#181211] dark:text-white text-xl font-bold">Cannoli Siciliani</p>
+<span class="text-primary font-bold">€6.00</span>
+</div>
+<p class="text-[#896861] dark:text-[#a1928e] text-sm leading-normal">
+                                Cialda croccante riempita al momento con crema di ricotta di pecora e granella di pistacchio.
+                            </p>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<button class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-10 py-3 rounded-lg font-bold transition-all uppercase tracking-wider text-sm">
+                        Visualizza l'intero Menu
+                    </button>
+</div>
+</div>
+</section>
+<!-- Reservation CTA -->
+<section class="py-20 max-w-[1200px] mx-auto px-6 lg:px-10">
+<div class="bg-olive/10 dark:bg-olive/20 rounded-2xl p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10">
+<div class="max-w-md space-y-4">
+<h2 class="text-3xl font-bold text-[#181211] dark:text-white">Assicura il tuo posto a tavola</h2>
+<p class="text-[#896861] dark:text-[#a1928e]">
+                        Organizziamo cene di famiglia, eventi speciali o semplici serate tra amici. Prenota online per garantirti la migliore esperienza.
+                    </p>
+</div>
+<div class="flex flex-col gap-4 w-full md:w-auto">
+<button class="bg-primary text-white px-10 py-5 rounded-xl font-black text-xl shadow-lg hover:shadow-primary/40 hover:-translate-y-1 transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined">event</span>
+                        Prenota Ora
+                    </button>
+<p class="text-xs text-center text-[#896861] dark:text-[#a1928e]">Oppure chiamaci: <span class="font-bold">+39 095 123 4567</span></p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background-dark text-white py-16">
+<div class="max-w-[1200px] mx-auto px-6 lg:px-10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-white/10 pb-12">
+<div class="col-span-1 md:col-span-1 space-y-4">
+<h3 class="text-2xl font-bold italic text-primary">Osteria Cilea</h3>
+<p class="text-white/60 text-sm leading-relaxed">
+                        L'autentica cucina siciliana nel cuore di Catania. Tradition and flavor in every bite.
+                    </p>
+<div class="flex gap-4">
+<a class="p-2 bg-white/5 hover:bg-primary transition-colors rounded-full" href="#"><span class="material-symbols-outlined text-lg">social_leaderboard</span></a>
+<a class="p-2 bg-white/5 hover:bg-primary transition-colors rounded-full" href="#"><span class="material-symbols-outlined text-lg">share</span></a>
+</div>
+</div>
+<div>
+<h4 class="font-bold mb-6 uppercase text-xs tracking-widest text-primary">Orari</h4>
+<ul class="text-sm text-white/60 space-y-2">
+<li>Lun - Ven: 12:30 - 15:00 / 19:30 - 23:00</li>
+<li>Sabato: 19:30 - 24:00</li>
+<li>Domenica: 12:30 - 16:00</li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 uppercase text-xs tracking-widest text-primary">Contatti</h4>
+<ul class="text-sm text-white/60 space-y-2">
+<li>Via Francesco Cilea, 12</li>
+<li>95124 Catania, Italia</li>
+<li>info@osteriacilea.it</li>
+<li>+39 095 123 4567</li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 uppercase text-xs tracking-widest text-primary">Dove Siamo</h4>
+<div class="w-full h-32 bg-white/10 rounded-lg overflow-hidden grayscale contrast-125 opacity-70">
+<div class="w-full h-full bg-cover bg-center" data-alt="Stylized map showing Catania city center" data-location="Catania" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBD17w-kCS4HgUNKzfcI0yCepanrrNDUd2lSfBkcusoxlOXi73Zu2gfnx3lR6nuqFJqZIZvB0vznf0QhSoiNgnc2QrwRLlB-irGrBWR2sWdDIqIT9SvAcNpN-xkzZ2bBSGrxdKugfj23tzNkEJAFL9HLoiPpwdGrgSDdFzhb-QYFR5UfFO89VIsKIwluYL2YdSd2DRpdp3pozOzm6M_1pP-DHULe-PBIQTf5I9LoMJCBJJltBxMrYVVJmnNH8Dg-REOGjyJnkuQDxU');"></div>
+</div>
+</div>
+</div>
+<div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
+<p>© 2024 Osteria Cilea. Tutti i diritti riservati.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Termini e Condizioni</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

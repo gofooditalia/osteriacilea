@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Specials from "../components/Specials.astro";
+import MenuCTA from "../components/MenuCTA.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Osteria Cilea | Tradizione e Passione Siciliana a Palermo">
+	<Navbar />
+	<main>
+		<Hero />
+		<About />
+		<Specials />
+		<MenuCTA />
+		<Footer />
+	</main>
+</Layout>
+
+<style is:global>
+	html {
+		scroll-behavior: smooth;
+	}
+
+	/* Custom scrollbar for a premium feel */
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+	::-webkit-scrollbar-track {
+		background: #fdfaf6;
+	}
+	::-webkit-scrollbar-thumb {
+		background: #ec3713;
+		border-radius: 5px;
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background: #d42f10;
+	}
+</style>

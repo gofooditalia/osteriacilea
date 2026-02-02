@@ -1,0 +1,41 @@
+---
+import "@fontsource/playball";
+import "@fontsource-variable/montserrat";
+import "../styles/global.css";
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const {
+	title,
+	description = "Osteria Cilea - Tradizione, Passione e Sapori di Famiglia a Palermo",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="it">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/x-icon" href="/icon.ico" />
+		<link rel="icon" type="image/svg+xml" href="/icon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Noto+Sans:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body
+		class="bg-bg-light dark:bg-bg-dark text-neutral-text font-display transition-colors duration-300"
+	>
+		<slot />
+	</body>
+</html>
