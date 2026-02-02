@@ -1,5 +1,9 @@
+---
+import { Menu, X } from "lucide-astro";
+---
+
 <header
-    class="sticky top-0 z-50 bg-bg-light/95 dark:bg-bg-dark/95 backdrop-blur-sm border-b border-[#e6ddddb] dark:border-[#3d2b27] px-6 lg:px-10 py-4 transition-all duration-300"
+    class="sticky top-0 z-50 bg-bg-light/95 dark:bg-bg-dark/95 backdrop-blur-sm border-b border-[#e6dddb] dark:border-[#3d2b27] px-6 lg:px-10 py-4 transition-all duration-300"
 >
     <div class="max-w-[1200px] mx-auto flex items-center justify-between">
         <div class="flex items-center gap-8">
@@ -42,6 +46,90 @@
             >
                 Prenota ora
             </a>
+            <button
+                id="mobile-menu-button"
+                class="lg:hidden p-2 text-neutral-text dark:text-white hover:text-primary transition-colors"
+                aria-label="Apri menu"
+            >
+                <Menu size={32} />
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Container -->
+    <div
+        id="mobile-menu"
+        class="fixed inset-0 z-[60] bg-bg-light dark:bg-bg-dark transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden"
+    >
+        <div class="flex flex-col h-full p-6">
+            <div class="flex items-center justify-between mb-12">
+                <div class="size-12">
+                    <img
+                        src="/icon.svg"
+                        alt="Osteria Cilea Logo"
+                        class="w-full h-full object-contain"
+                    />
+                </div>
+                <button
+                    id="close-menu-button"
+                    class="p-2 text-neutral-text dark:text-white hover:text-primary transition-colors"
+                    aria-label="Chiudi menu"
+                >
+                    <X size={32} />
+                </button>
+            </div>
+            <nav class="flex flex-col gap-6">
+                <a
+                    href="/"
+                    class="mobile-link text-2xl font-bold text-neutral-text dark:text-white hover:text-primary transition-colors"
+                    >Home</a
+                >
+                <a
+                    href="/menu"
+                    class="mobile-link text-2xl font-bold text-neutral-text dark:text-white hover:text-primary transition-colors"
+                    >Il Menu</a
+                >
+                <a
+                    href="/#osteria"
+                    class="mobile-link text-2xl font-bold text-neutral-text dark:text-white hover:text-primary transition-colors"
+                    >Il Progetto</a
+                >
+                <a
+                    href="/#prenota"
+                    class="mobile-link text-2xl font-bold text-neutral-text dark:text-white hover:text-primary transition-colors"
+                    >Prenota</a
+                >
+            </nav>
+            <div class="mt-auto pt-10">
+                <a
+                    href="/#prenota"
+                    class="mobile-link flex w-full cursor-pointer items-center justify-center rounded-lg h-14 bg-primary text-white text-lg font-black tracking-widest uppercase hover:opacity-90 transition-all shadow-lg shadow-primary/20"
+                >
+                    Prenota ora
+                </a>
+            </div>
         </div>
     </div>
 </header>
+
+<script>
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const closeMenuButton = document.getElementById("close-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    function toggleMenu() {
+        mobileMenu?.classList.toggle("translate-x-full");
+        document.body.classList.toggle("overflow-hidden");
+    }
+
+    mobileMenuButton?.addEventListener("click", toggleMenu);
+    closeMenuButton?.addEventListener("click", toggleMenu);
+
+    mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            mobileMenu?.classList.add("translate-x-full");
+            document.body.classList.remove("overflow-hidden");
+        });
+    });
+</script>
