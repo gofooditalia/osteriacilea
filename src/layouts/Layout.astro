@@ -3,6 +3,8 @@ import "@fontsource/playball";
 import "@fontsource-variable/montserrat";
 import "../styles/global.css";
 
+import SplashScreen from "../components/SplashScreen.astro";
+
 interface Props {
 	title: string;
 	description?: string;
@@ -36,6 +38,7 @@ const {
 	<body
 		class="bg-bg-light dark:bg-bg-dark text-neutral-text font-display transition-colors duration-300"
 	>
+		<SplashScreen />
 		<slot />
 	</body>
 </html>

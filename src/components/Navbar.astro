@@ -3,12 +3,15 @@ import { Menu, X } from "lucide-astro";
 ---
 
 <header
-    class="sticky top-0 z-50 bg-bg-light/95 dark:bg-bg-dark/95 backdrop-blur-sm border-b border-[#e6dddb] dark:border-[#3d2b27] px-6 lg:px-10 py-4 transition-all duration-300"
+    id="navbar"
+    class="fixed top-0 left-0 w-full z-50 px-6 lg:px-10 py-4 transition-all duration-500 bg-transparent border-b border-white/0"
 >
     <div class="max-w-[1200px] mx-auto flex items-center justify-between">
         <div class="flex items-center gap-8">
             <a href="/" class="flex items-center gap-3 text-primary group">
-                <div class="size-12 transition-transform group-hover:scale-110">
+                <div
+                    class="size-14 p-2 bg-[#181211] rounded-lg shadow-lg transition-transform group-hover:scale-105 border border-white/10"
+                >
                     <img
                         src="/icon.svg"
                         alt="Osteria Cilea Logo"
@@ -19,26 +22,31 @@ import { Menu, X } from "lucide-astro";
             <nav class="hidden lg:flex items-center gap-8">
                 <a
                     href="/"
-                    class="text-neutral-text dark:text-white text-sm font-bold hover:text-primary transition-colors"
+                    class="text-white text-sm font-bold hover:text-primary transition-colors"
                     >Home</a
                 >
                 <a
                     href="/menu"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="text-neutral-text dark:text-white text-sm font-bold hover:text-primary transition-colors"
+                    class="text-white text-sm font-bold hover:text-primary transition-colors"
                     >Il Menu</a
                 >
                 <a
                     href="/#osteria"
-                    class="text-neutral-text dark:text-white text-sm font-bold hover:text-primary transition-colors"
+                    class="text-white text-sm font-bold hover:text-primary transition-colors"
                     >Il Progetto</a
+                >
+                <a
+                    href="/#gallery"
+                    class="text-white text-sm font-bold hover:text-primary transition-colors"
+                    >Gallery</a
                 >
                 <a
                     href="https://www.google.com/maps/reserve/v/dine/c/CG8eycUaKzk?source=pa&opi=89978449&hl=it-IT&gei=W5SAabqONIPv7_UP8viT6AI&sourceurl=https://www.google.com/search?q%3Dosteria%2Bcilea%26oq%3Dosteria%26pf%3Dcs%26sourceid%3Dchrome%26ie%3DUTF-8"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="text-neutral-text dark:text-white text-sm font-bold hover:text-primary transition-colors"
+                    class="text-white text-sm font-bold hover:text-primary transition-colors"
                     >Prenota</a
                 >
             </nav>
@@ -54,7 +62,7 @@ import { Menu, X } from "lucide-astro";
             </a>
             <button
                 id="mobile-menu-button"
-                class="lg:hidden p-2 text-neutral-text dark:text-white hover:text-primary transition-colors"
+                class="lg:hidden p-2 text-white hover:text-primary transition-colors"
                 aria-label="Apri menu"
             >
                 <Menu size={32} />
@@ -70,7 +78,9 @@ import { Menu, X } from "lucide-astro";
 >
     <div class="flex flex-col h-full p-6">
         <div class="flex items-center justify-between mb-12">
-            <div class="size-12">
+            <div
+                class="size-16 p-2 bg-[#181211] rounded-xl shadow-xl border border-white/10"
+            >
                 <img
                     src="/icon.svg"
                     alt="Osteria Cilea Logo"
@@ -104,6 +114,11 @@ import { Menu, X } from "lucide-astro";
                 >Il Progetto</a
             >
             <a
+                href="/#gallery"
+                class="mobile-link text-2xl font-bold text-neutral-text dark:text-white hover:text-primary transition-colors"
+                >Gallery</a
+            >
+            <a
                 href="https://www.google.com/maps/reserve/v/dine/c/CG8eycUaKzk?source=pa&opi=89978449&hl=it-IT&gei=W5SAabqONIPv7_UP8viT6AI&sourceurl=https://www.google.com/search?q%3Dosteria%2Bcilea%26oq%3Dosteria%26pf%3Dcs%26sourceid%3Dchrome%26ie%3DUTF-8"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -125,10 +140,36 @@ import { Menu, X } from "lucide-astro";
 </div>
 
 <script>
+    const navbar = document.getElementById("navbar");
     const mobileMenuButton = document.getElementById("mobile-menu-button");
     const closeMenuButton = document.getElementById("close-menu-button");
     const mobileMenu = document.getElementById("mobile-menu");
     const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    // Dynamic Navbar on Scroll
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            navbar?.classList.add(
+                "bg-bg-dark/95",
+                "backdrop-blur-sm",
+                "border-white/10",
+                "py-3",
+            );
+            navbar?.classList.remove(
+                "bg-transparent",
+                "border-white/0",
+                "py-4",
+            );
+        } else {
+            navbar?.classList.remove(
+                "bg-bg-dark/95",
+                "backdrop-blur-sm",
+                "border-white/10",
+                "py-3",
+            );
+            navbar?.classList.add("bg-transparent", "border-white/0", "py-4");
+        }
+    });
 
     function toggleMenu() {
         mobileMenu?.classList.toggle("translate-x-full");

@@ -1,34 +1,138 @@
 ---
 const images = [
-    { src: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&q=80&w=1632", alt: "Specialità di pesce" },
-    { src: "https://images.unsplash.com/photo-1473093226795-af9932fe5856?auto=format&fit=crop&q=80&w=1394", alt: "Pasta siciliana" },
-    { src: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=1974", alt: "Vino rosso e pane" },
-    { src: "https://images.unsplash.com/photo-1541014741259-df549fa9ba6f?auto=format&fit=crop&q=80&w=1470", alt: "Dolce tradizionale" },
-    { src: "https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?auto=format&fit=crop&q=80&w=1370", alt: "Atmosfera locale" },
-    { src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=1470", alt: "Platting gourmet" }
+    {
+        src: "/gallery/cilea-vertic-rigatoni-norma.png",
+        alt: "Rigatoni alla Norma",
+    },
+    {
+        src: "/gallery/cilea-vertic-spaghettoni-ricci.png",
+        alt: "Spaghettoni ai Ricci di Mare",
+    },
+    { src: "/gallery/cilea-vertic-anciova.png", alt: "Pasta con l'Anciova" },
+    {
+        src: "/gallery/cilea-vertic-rigatoni-ragu.png",
+        alt: "Rigatoni al Ragù Siciliano",
+    },
+    {
+        src: "/gallery/cilea-vertic-broccolo-arriminato.png",
+        alt: "Pasta con Broccolo Arriminato",
+    },
+    {
+        src: "/gallery/cilea-vertic-sarde-beccsfico.png",
+        alt: "Sarde a Beccafico",
+    },
+    {
+        src: "/gallery/cilea-vertic-caponata-melanzane.png",
+        alt: "Caponata di Melanzane",
+    },
+    {
+        src: "/gallery/cilea-vertic-involtino-melanzane.png",
+        alt: "Involtini di Melanzane",
+    },
+    {
+        src: "/gallery/cilea-vertic-carciofi-tappo-uovo.png",
+        alt: "Carciofi col Tappo",
+    },
+    {
+        src: "/gallery/cilea-vertic-panelle-crocche.png",
+        alt: "Panelle e Crocchè",
+    },
+    {
+        src: "/gallery/cilea-vertic-frittella-ricotta.png",
+        alt: "Frittella con Ricotta",
+    },
+    {
+        src: "/gallery/cilea-vertic-gambero-marinato.png",
+        alt: "Gambero Rosso Marinato",
+    },
+    {
+        src: "/gallery/cilea-vertic-triglie-finocchietto.png",
+        alt: "Triglie al Finocchietto",
+    },
+    {
+        src: "/gallery/cilea-vertic-calamaro-arrosto.png",
+        alt: "Calamaro Arrosto",
+    },
+    {
+        src: "/gallery/cilea-vertic-insalata-aringa.png",
+        alt: "Insalata di Aringa",
+    },
+    {
+        src: "/gallery/cilea-vertic-insalata-musso-carcagnolo.png",
+        alt: "Insalata di Musso e Carcagnolo",
+    },
+    { src: "/gallery/cilea-vertic-glassa.png", alt: "Carne glassata" },
+    {
+        src: "/gallery/cilea-vertic-interno-001.png",
+        alt: "L'atmosfera dell'Osteria",
+    },
+    { src: "/gallery/cilea-vertic-interno-002.png", alt: "Dettagli d'epoca" },
+    {
+        src: "/gallery/cilea-vertic-interno-003.png",
+        alt: "La nostra accoglienza",
+    },
+    {
+        src: "/gallery/cilea-orizz-caserecce-lido.png",
+        alt: "Caserecce al Lido",
+    },
+    {
+        src: "/gallery/cilea-orizz-polpette-sarde-agrodolce.png",
+        alt: "Polpette di Sarde in Agrodolce",
+    },
+    {
+        src: "/gallery/cilea-orizz-primosale-fritto-acciuga.png",
+        alt: "Primosale Fritto all'Acciuga",
+    },
+    {
+        src: "/gallery/cilea-orizz-polpette-al-sugo.png",
+        alt: "Polpette al Sugo della Nonna",
+    },
+    {
+        src: "/gallery/cilea-orizz-triglie-finocchietti.png",
+        alt: "Triglie e Finocchietti",
+    },
+    {
+        src: "/gallery/cilea-orizz-grigliata-mista.png",
+        alt: "Grigliata Mista di Pesce",
+    },
+    { src: "/gallery/cilea-orizz-frittella.png", alt: "La nostra Frittella" },
 ];
 ---
 
-<section id="gallery" class="py-24 bg-primary px-6">
+<section id="gallery" class="py-24 bg-[#fdfaf6] dark:bg-[#1a0f0d] px-6">
     <div class="max-w-7xl mx-auto space-y-12">
         <div class="text-center space-y-4">
-            <h2 class="font-serif-script text-accent text-5xl">La Nostra Gallery</h2>
-            <p class="text-neutral-text/60 uppercase tracking-widest text-sm font-bold">Uno sguardo in cucina e in sala</p>
+            <h2
+                class="text-4xl md:text-5xl font-bold tracking-tight text-neutral-text dark:text-white font-display"
+            >
+                La Nostra Gallery
+            </h2>
+            <p
+                class="text-[#896861] dark:text-[#a1928e] max-w-xl mx-auto italic text-lg"
+            >
+                Uno sguardo alla nostra cucina, alla sala e ai piatti che
+                raccontano la nostra storia.
+            </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {images.map((img) => (
-                <div class="relative overflow-hidden rounded-xl aspect-[4/5] group cursor-pointer shadow-lg">
-                    <img 
-                        src={img.src} 
-                        alt={img.alt} 
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                        <p class="text-white font-bold text-lg">{img.alt}</p>
+        <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+            {
+                images.map((img) => (
+                    <div class="relative overflow-hidden rounded-xl group cursor-pointer shadow-md break-inside-avoid mb-6">
+                        <img
+                            src={img.src}
+                            alt={img.alt}
+                            loading="lazy"
+                            class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                            <p class="text-white font-bold text-lg">
+                                {img.alt}
+                            </p>
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))
+            }
         </div>
     </div>
 </section>

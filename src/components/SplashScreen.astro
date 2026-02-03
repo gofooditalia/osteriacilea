@@ -1,0 +1,94 @@
+---
+
+---
+
+<div
+    id="splash-screen"
+    class="fixed inset-0 z-[100] flex items-center justify-center bg-[#181211] overflow-hidden"
+>
+    <div class="relative flex flex-col items-center gap-8">
+        <!-- Logo Container -->
+        <div
+            class="size-32 md:size-48 p-4 bg-[#181211] rounded-2xl shadow-2xl border border-white/5 animate-splash-logo"
+        >
+            <img
+                src="/icon.svg"
+                alt="Osteria Cilea Logo"
+                class="w-full h-full object-contain"
+            />
+        </div>
+
+        <!-- Loading Text -->
+        <div class="overflow-hidden">
+            <p
+                class="text-white/40 text-sm tracking-[0.3em] uppercase font-light animate-splash-text"
+            >
+                Osteria Cilea
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+    @keyframes splashLogo {
+        0% {
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+        }
+        50% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+    }
+
+    @keyframes splashText {
+        0% {
+            transform: translateY(100%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeOut {
+        to {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    .animate-splash-logo {
+        animation: splashLogo 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    .animate-splash-text {
+        animation: splashText 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        animation-delay: 0.5s;
+    }
+
+    .fade-out {
+        animation: fadeOut 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+</style>
+
+<script>
+    const splashScreen = document.getElementById("splash-screen");
+
+    // Prevent scrolling initially
+    document.body.style.overflow = "hidden";
+
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+            splashScreen?.classList.add("fade-out");
+
+            // Re-enable scrolling after animation finishes
+            setTimeout(() => {
+                document.body.style.overflow = "";
+            }, 800);
+        }, 2500); // Total duration of the splash show
+    });
+</script>
