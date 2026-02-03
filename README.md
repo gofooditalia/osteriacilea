@@ -4,9 +4,17 @@ L'autentica cucina siciliana nel cuore di Palermo. Tradizione, passione e sapori
 
 **Sito ufficiale:** [https://osteriacilea.it](https://osteriacilea.it)
 
-## 🚀 Struttura del Progetto
+## 🛠️ Tech Stack
 
-Il progetto è realizzato con Astro e Tailwind CSS.
+Il progetto è costruito utilizzando le tecnologie web più moderne per garantire performance e una user experience premium:
+
+- **Framework**: [Astro 5](https://astro.build/) - Framework web ultra-veloce orientato ai contenuti.
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) - Engine CSS utility-first per un design moderno e reattivo.
+- **Icons**: [Lucide Astro](https://lucide.dev/) - Set di icone pulite ed eleganti.
+- **Typography**: [Fontsource](https://fontsource.org/) - Gestione self-hosted dei font Google (Playball, Montserrat).
+- **Language**: [TypeScript](https://www.typescriptlang.org/) - Per un codice robusto e manutenibile.
+
+## 🚀 Struttura del Progetto
 
 - `src/layouts/`: Contiene il layout principale della pagina.
 - `src/components/`: Contiene i componenti UI riutilizzabili.
@@ -22,6 +30,6 @@ Il progetto è realizzato con Astro e Tailwind CSS.
 | `npm run build` | Compila il sito per la produzione nella cartella `./dist/` |
 | `npm run preview` | Visualizza in anteprima la build locale |
 
-## 🛠️ Developed by
+## 👨‍💻 Developed by
 
 Sviluppato con passione da [GO!Food Italia](https://gofoodmenu.it).
