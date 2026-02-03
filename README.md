@@ -1,43 +1,27 @@
-# Astro Starter Kit: Minimal
+# Osteria Cilea
 
-```sh
-npm create astro@latest -- --template minimal
-```
+L'autentica cucina siciliana nel cuore di Palermo. Tradizione, passione e sapori di famiglia in ogni boccone.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+**Sito ufficiale:** [https://osteriacilea.it](https://osteriacilea.it)
 
-## 🚀 Project Structure
+## 🚀 Struttura del Progetto
 
-Inside of your Astro project, you'll see the following folders and files:
+Il progetto è realizzato con Astro e Tailwind CSS.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- `src/layouts/`: Contiene il layout principale della pagina.
+- `src/components/`: Contiene i componenti UI riutilizzabili.
+- `src/pages/`: Contiene le pagine del sito (index.astro).
+- `public/`: Contiene gli asset statici (immagini, icone, video).
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🧞 Comandi principali
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+| Comando | Azione |
+| :--- | :--- |
+| `npm install` | Installa le dipendenze |
+| `npm run dev` | Avvia il server di sviluppo locale su `localhost:4321` |
+| `npm run build` | Compila il sito per la produzione nella cartella `./dist/` |
+| `npm run preview` | Visualizza in anteprima la build locale |
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 🛠️ Developed by
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Sviluppato con passione da [GO!Food Italia](https://gofoodmenu.it).
