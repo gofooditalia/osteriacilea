@@ -92,13 +92,31 @@ import { Instagram, Facebook } from "lucide-astro";
             <p>
                 © {new Date().getFullYear()} Osteria Cilea. Tutti i diritti riservati.
             </p>
-            <div class="flex gap-6">
-                <a class="hover:text-primary transition-colors" href="#"
-                    >Privacy Policy</a
-                >
-                <a class="hover:text-primary transition-colors" href="#"
-                    >Termini e Condizioni</a
-                >
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-2 group">
+                    <span class="opacity-50">Developed by</span>
+                    <a
+                        href="https://gofoodmenu.it"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center gap-1.5 hover:opacity-100 transition-opacity"
+                    >
+                        <img
+                            src="/gofood.svg"
+                            alt="GO!Food Italia"
+                            class="h-4 w-auto"
+                        />
+                    </a>
+                </div>
+                <div class="h-3 w-[1px] bg-white/10 hidden md:block"></div>
+                <div class="flex gap-6">
+                    <a class="hover:text-primary transition-colors" href="#"
+                        >Privacy Policy</a
+                    >
+                    <a class="hover:text-primary transition-colors" href="#"
+                        >Termini e Condizioni</a
+                    >
+                </div>
             </div>
         </div>
     </div>
