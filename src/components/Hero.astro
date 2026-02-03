@@ -6,12 +6,23 @@ import { Image } from "astro:assets";
     class="relative w-full overflow-hidden min-h-[85vh] flex items-center justify-center bg-cover bg-center"
     style='background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url("/hero-bg.png");'
 >
+    <!-- Mobile Video (Vertical) -->
     <video
         autoplay
         muted
         loop
         playsinline
-        class="absolute top-0 left-0 w-full h-full object-cover z-0"
+        class="absolute top-0 left-0 w-full h-full object-cover z-0 block md:hidden"
+    >
+        <source src="/hero-bg-mobile.mp4" type="video/mp4" />
+    </video>
+    <!-- Desktop Video (Horizontal) -->
+    <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="absolute top-0 left-0 w-full h-full object-cover z-0 hidden md:block"
     >
         <source src="/hero-bg.mp4" type="video/mp4" />
     </video>
