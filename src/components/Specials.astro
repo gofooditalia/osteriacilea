@@ -5,21 +5,21 @@ const specials = [
         price: "€5.00",
         description:
             "Melanzane, salsa di pomodoro, capperi, cipolla, sedano, olive, aceto e zucchero.",
-        image: "/dishes/cilea-caponata-melanzane.png",
+        image: "/dishes/cilea-caponata-melanzane.webp",
     },
     {
         title: "Sarde a Beccafico",
         price: "€7.00",
         description:
             "Preparate con pangrattato, uva passolina e pinoli, agrumi, cipolla e alloro.",
-        image: "/dishes/cilea-sarde-beccafico.png",
+        image: "/dishes/cilea-sarde-beccafico.webp",
     },
     {
         title: "Insalata di Musso e Carcagnolo",
         price: "€5.00",
         description:
             "Insalata di vitello con carote, sedano, cipolla, olive, sale, olio e pepe.",
-        image: "/dishes/cilea-insalata-musso-carcagnolo.png",
+        image: "/dishes/cilea-insalata-musso-carcagnolo.webp",
     },
 ];
 ---
@@ -47,13 +47,15 @@ const specials = [
             {
                 specials.map((item) => (
                     <div class="group flex flex-col gap-4 bg-bg-light dark:bg-bg-dark p-4 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300">
-                        <div class="w-full aspect-square rounded-lg overflow-hidden">
-                            <div
-                                class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                                style={`background-image: url('${item.image}')`}
-                            >
-                                <div class="w-full h-full bg-black/0 group-hover:bg-black/10 transition-all" />
-                            </div>
+                        <div class="w-full aspect-square rounded-lg overflow-hidden relative">
+                            <img
+                                src={item.image}
+                                alt={item.title}
+                                loading="lazy"
+                                decoding="async"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all pointer-events-none" />
                         </div>
                         <div class="flex flex-col gap-1">
                             <div class="flex justify-between items-center">

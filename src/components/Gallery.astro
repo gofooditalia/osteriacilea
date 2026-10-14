@@ -1,101 +1,101 @@
 ---
 const images = [
     {
-        src: "/gallery/cilea-vertic-rigatoni-norma.png",
+        src: "/gallery/cilea-vertic-rigatoni-norma.webp",
         alt: "Rigatoni alla Norma",
     },
     {
-        src: "/gallery/cilea-vertic-spaghettoni-ricci.png",
+        src: "/gallery/cilea-vertic-spaghettoni-ricci.webp",
         alt: "Spaghettoni ai Ricci di Mare",
     },
-    { src: "/gallery/cilea-vertic-anciova.png", alt: "Pasta con l'Anciova" },
+    { src: "/gallery/cilea-vertic-anciova.webp", alt: "Pasta con l'Anciova" },
     {
-        src: "/gallery/cilea-vertic-rigatoni-ragu.png",
+        src: "/gallery/cilea-vertic-rigatoni-ragu.webp",
         alt: "Rigatoni al Ragù Siciliano",
     },
     {
-        src: "/gallery/cilea-vertic-broccolo-arriminato.png",
+        src: "/gallery/cilea-vertic-broccolo-arriminato.webp",
         alt: "Pasta con Broccolo Arriminato",
     },
     {
-        src: "/gallery/cilea-vertic-sarde-beccsfico.png",
+        src: "/gallery/cilea-vertic-sarde-beccsfico.webp",
         alt: "Sarde a Beccafico",
     },
     {
-        src: "/gallery/cilea-vertic-caponata-melanzane.png",
+        src: "/gallery/cilea-vertic-caponata-melanzane.webp",
         alt: "Caponata di Melanzane",
     },
     {
-        src: "/gallery/cilea-vertic-involtino-melanzane.png",
+        src: "/gallery/cilea-vertic-involtino-melanzane.webp",
         alt: "Involtini di Melanzane",
     },
     {
-        src: "/gallery/cilea-vertic-carciofi-tappo-uovo.png",
+        src: "/gallery/cilea-vertic-carciofi-tappo-uovo.webp",
         alt: "Carciofi col Tappo",
     },
     {
-        src: "/gallery/cilea-vertic-panelle-crocche.png",
+        src: "/gallery/cilea-vertic-panelle-crocche.webp",
         alt: "Panelle e Crocchè",
     },
     {
-        src: "/gallery/cilea-vertic-frittella-ricotta.png",
+        src: "/gallery/cilea-vertic-frittella-ricotta.webp",
         alt: "Frittella con Ricotta",
     },
     {
-        src: "/gallery/cilea-vertic-gambero-marinato.png",
+        src: "/gallery/cilea-vertic-gambero-marinato.webp",
         alt: "Gambero Rosso Marinato",
     },
     {
-        src: "/gallery/cilea-vertic-triglie-finocchietto.png",
+        src: "/gallery/cilea-vertic-triglie-finocchietto.webp",
         alt: "Triglie al Finocchietto",
     },
     {
-        src: "/gallery/cilea-vertic-calamaro-arrosto.png",
+        src: "/gallery/cilea-vertic-calamaro-arrosto.webp",
         alt: "Calamaro Arrosto",
     },
     {
-        src: "/gallery/cilea-vertic-insalata-aringa.png",
+        src: "/gallery/cilea-vertic-insalata-aringa.webp",
         alt: "Insalata di Aringa",
     },
     {
-        src: "/gallery/cilea-vertic-insalata-musso-carcagnolo.png",
+        src: "/gallery/cilea-vertic-insalata-musso-carcagnolo.webp",
         alt: "Insalata di Musso e Carcagnolo",
     },
-    { src: "/gallery/cilea-vertic-glassa.png", alt: "Carne glassata" },
+    { src: "/gallery/cilea-vertic-glassa.webp", alt: "Carne glassata" },
     {
-        src: "/gallery/cilea-vertic-interno-001.png",
+        src: "/gallery/cilea-vertic-interno-001.webp",
         alt: "L'atmosfera dell'Osteria",
     },
-    { src: "/gallery/cilea-vertic-interno-002.png", alt: "Dettagli d'epoca" },
+    { src: "/gallery/cilea-vertic-interno-002.webp", alt: "Dettagli d'epoca" },
     {
-        src: "/gallery/cilea-vertic-interno-003.png",
+        src: "/gallery/cilea-vertic-interno-003.webp",
         alt: "La nostra accoglienza",
     },
     {
-        src: "/gallery/cilea-orizz-caserecce-lido.png",
+        src: "/gallery/cilea-orizz-caserecce-lido.webp",
         alt: "Caserecce al Lido",
     },
     {
-        src: "/gallery/cilea-orizz-polpette-sarde-agrodolce.png",
+        src: "/gallery/cilea-orizz-polpette-sarde-agrodolce.webp",
         alt: "Polpette di Sarde in Agrodolce",
     },
     {
-        src: "/gallery/cilea-orizz-primosale-fritto-acciuga.png",
+        src: "/gallery/cilea-orizz-primosale-fritto-acciuga.webp",
         alt: "Primosale Fritto all'Acciuga",
     },
     {
-        src: "/gallery/cilea-orizz-polpette-al-sugo.png",
+        src: "/gallery/cilea-orizz-polpette-al-sugo.webp",
         alt: "Polpette al Sugo della Nonna",
     },
     {
-        src: "/gallery/cilea-orizz-triglie-finocchietti.png",
+        src: "/gallery/cilea-orizz-triglie-finocchietti.webp",
         alt: "Triglie e Finocchietti",
     },
     {
-        src: "/gallery/cilea-orizz-grigliata-mista.png",
+        src: "/gallery/cilea-orizz-grigliata-mista.webp",
         alt: "Grigliata Mista di Pesce",
     },
-    { src: "/gallery/cilea-orizz-frittella.png", alt: "La nostra Frittella" },
+    { src: "/gallery/cilea-orizz-frittella.webp", alt: "La nostra Frittella" },
 ];
 ---
 
@@ -126,6 +126,7 @@ const images = [
                             src={img.src}
                             alt={img.alt}
                             loading="lazy"
+                            decoding="async"
                             class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                         <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex items-start p-6">

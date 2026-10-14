@@ -79,14 +79,23 @@
     // Prevent scrolling initially
     document.body.style.overflow = "hidden";
 
-    window.addEventListener("load", () => {
+    function dismissSplash() {
+        if (!splashScreen || splashScreen.classList.contains("fade-out")) return;
+        splashScreen.classList.add("fade-out");
         setTimeout(() => {
-            splashScreen?.classList.add("fade-out");
+            document.body.style.overflow = "";
+            splashScreen.style.display = "none";
+        }, 800);
+    }
 
-            // Re-enable scrolling after animation finishes
-            setTimeout(() => {
-                document.body.style.overflow = "";
-            }, 800);
-        }, 2500); // Total duration of the splash show
-    });
+    // Safety timeout: dismiss after 1.5s max regardless of network
+    setTimeout(dismissSplash, 1500);
+
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+        setTimeout(dismissSplash, 1000);
+    } else {
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(dismissSplash, 1000);
+        });
+    }
 </script>
