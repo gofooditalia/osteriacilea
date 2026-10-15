@@ -4,7 +4,7 @@ Sito one-page di **Osteria Cilea** (Via Francesco Cilea 79, 90144 Palermo). Clie
 Comunicazione con Giorgio: **in italiano**, diretta, niente giri di parole.
 
 - Repo: https://github.com/gofooditalia/osteriacilea (branch `main`)
-- Produzione: https://www.osteriacilea.it (dominio primario; `osteriacilea.it` fa redirect 307 a `www`) — deploy automatico su **Vercel** a ogni push su `main`
+- Produzione: https://www.osteriacilea.it (dominio primario; `osteriacilea.it` e `osteriacilea.vercel.app` fanno redirect 308 permanente a `www`, impostato su Vercel → Settings → Domains) — deploy automatico su **Vercel** a ogni push su `main`
 - Credits nel footer: "Developed by" + logo GO!Food Italia → https://gofoodmenu.it (non usare il nome personale)
 - Titolare: Davide Terrasi (ditta individuale), sede legale Via Don Michele Rua 1, 90124 Palermo, P.IVA 07367400822 (in footer e /privacy), email osteriacilea@gmail.com, PEC osteriacilea@pec.it. Non pubblicare codice fiscale
 - URL senza slash finale (`trailingSlash: 'never'`)
