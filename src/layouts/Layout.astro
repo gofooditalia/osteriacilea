@@ -51,10 +51,10 @@ const restaurantSchema = {
 	},
 	hasMap: "https://maps.app.goo.gl/q6tiBoJyQDYVJGnv9",
 	servesCuisine: ["Siciliana", "Italiana"],
-	priceRange: "€€",
+	priceRange: "10-20 €",
 	menu: "https://gofoodmenu.it/osteria-cilea",
 	acceptsReservations: true,
-	// Stessi orari della scheda Google Business (verificati il 15/10/2026)
+	// Stessi orari della scheda Google Business (aggiornati il 15/10/2026: tutte le sere fino alle 23)
 	openingHoursSpecification: [
 		{
 			"@type": "OpeningHoursSpecification",
@@ -64,13 +64,7 @@ const restaurantSchema = {
 		},
 		{
 			"@type": "OpeningHoursSpecification",
-			dayOfWeek: ["Monday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-			opens: "19:30",
-			closes: "23:30",
-		},
-		{
-			"@type": "OpeningHoursSpecification",
-			dayOfWeek: "Tuesday",
+			dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
 			opens: "19:30",
 			closes: "23:00",
 		},

@@ -44,7 +44,7 @@ public/                       asset statici (video hero ~4 MB in tutto, gallery 
 - Menu: `/menu` → redirect 302 a https://gofoodmenu.it/osteria-cilea (definito in `astro.config.mjs`)
 - Prenotazioni: link Google Reserve in `MenuCTA.astro`
 - Google Maps: https://maps.app.goo.gl/q6tiBoJyQDYVJGnv9 — Lascia recensione: https://g.page/r/CQ-qVW7iWy7TEBM/review
-- Orari: fonte = scheda Google Business. Aperti tutti i giorni 12:30–15:00 / 19:30–23:30 (martedì cena fino alle 23:00 su Google, verificato 15/10/2026). Ripetuti in Footer e JSON-LD (Layout.astro)
+- Orari: fonte = scheda Google Business. Aperti tutti i giorni 12:30–15:00 / 19:30–23:00 (direttiva del gestore, Google aggiornato il 15/10/2026). Fascia prezzo Google: 10-20 € a persona. Ripetuti in Footer e JSON-LD (Layout.astro)
 
 ## Design
 
