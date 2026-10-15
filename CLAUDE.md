@@ -51,6 +51,7 @@ public/                       asset statici (video hero ~4 MB in tutto, gallery 
 
 - Colori (`global.css`): primary `#ec3713` (rosso), olive `#556b2f` (in dark mode `olive-light` `#9cb86a` per testo/bordi), bg-light `#fdfaf6`, bg-dark `#1a0f0d`, testo `#181211`; testo secondario `#896861` (hardcoded)
 - Font: solo **Noto Serif** (`font-display`, 400/700/400 italic) self-hosted via `@fontsource/noto-serif`
+- Favicon (`public/favicon*`, `apple-touch-icon.png`): scritta "cilea" bianca ispessita su fondo rosso `#ec3713`, senza cornice né sottotitolo (leggibile a 16px). `icon.svg` resta il logo completo usato in navbar/footer/splash
 - Le classi `dark:` sono presenti e seguono `prefers-color-scheme` (nessun toggle).
 
 ## Problemi noti / backlog (analisi 15/10/2026)
