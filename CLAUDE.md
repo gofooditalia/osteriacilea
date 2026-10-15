@@ -14,6 +14,7 @@ Comunicazione con Giorgio: **in italiano**, diretta, niente giri di parole.
 - Icone: solo `lucide-astro`
 - TypeScript strict (`astro/tsconfigs/strict`)
 - Comandi: `npm run dev` (localhost:4321), `npm run build`, `npm run preview`
+- `npm run build` esegue anche `scripts/fix-vercel-asset-cache.mjs`: workaround per `@astrojs/vercel` 9.x che mette la regola `immutable` di `/_astro/` dopo `handle: filesystem` (header mai applicato). Rimuoverlo se si aggiorna l'adapter e il bug è risolto
 
 ## Struttura
 
