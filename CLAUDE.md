@@ -76,12 +76,11 @@ Contenuti / UX / accessibilità
 - [x] Dark mode su mobile verificata (15/10/2026): pulsanti outline oliva schiariti con `olive-light`
 
 Pulizia
-- [ ] File residui in root: `stitch_home.html` (mockup iniziale) e `menu-osteria-cilea.pdf`
+- [x] Rimossi file residui (`stitch_home.html`, `menu-osteria-cilea.pdf`) e le 4 foto inutilizzate di `public/gallery/`
 - [x] README tipografia aggiornata
 
 ## Convenzioni
 
 - Commit in stile conventional (`feat:`, `fix:`, `style:`, `perf:`, `chore:`, `docs:`), messaggi in inglese
 - Immagini in WebP, nomi `cilea-<orientamento>-<piatto>.webp` (`vertic`/`orizz`); quelle di contenuto vanno in `src/assets/` e si usano con `<Image>` (non in `public/`)
-- `public/gallery/` contiene ancora 4 foto non usate (anciova-002, grigliata-mista vertic, insalata-musso-carcagnolo-002, orizz-insalata-musso-carcagnolo)
 - Testi del sito in italiano
