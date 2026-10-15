@@ -1,21 +1,33 @@
 <section
     id="home"
-    class="relative w-full overflow-hidden h-[100dvh] md:h-screen flex items-center justify-center bg-cover bg-center"
-    style='background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url("/hero-bg.webp");'
+    class="relative w-full overflow-hidden h-[100dvh] md:h-screen flex items-center justify-center bg-bg-dark"
 >
-    <!-- Responsive Video with WebP Poster and Media Queries to prevent dual download -->
+    <!-- Poster: primo fotogramma del video, mostrato subito (LCP) -->
+    <picture>
+        <source media="(min-width: 768px)" srcset="/hero-poster.webp" width="1920" height="1080" />
+        <img
+            src="/hero-poster-mobile.webp"
+            width="720"
+            height="1280"
+            alt=""
+            fetchpriority="high"
+            decoding="async"
+            class="absolute inset-0 w-full h-full object-cover z-0"
+        />
+    </picture>
+
+    <!-- Video caricato dopo il load della pagina (vedi script sotto) -->
     <video
-        autoplay
+        id="hero-video"
         muted
         loop
         playsinline
-        preload="metadata"
-        poster="/hero-bg.webp"
-        class="absolute top-0 left-0 w-full h-full object-cover z-0"
-    >
-        <source src="/hero-bg.mp4" media="(min-width: 768px)" type="video/mp4" />
-        <source src="/hero-bg-mobile.mp4" media="(max-width: 767px)" type="video/mp4" />
-    </video>
+        preload="none"
+        aria-hidden="true"
+        data-src-desktop="/hero-bg.mp4"
+        data-src-mobile="/hero-bg-mobile.mp4"
+        class="absolute inset-0 w-full h-full object-cover z-0 opacity-0 transition-opacity duration-700"
+    ></video>
     <div class="absolute inset-0 bg-black/40 z-10"></div>
 
     <div
@@ -53,6 +65,34 @@
         </div>
     </div>
 </section>
+
+<script>
+    const video = document.getElementById("hero-video") as HTMLVideoElement | null;
+    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // @ts-ignore - Network Information API non tipizzata
+    const saveData = navigator.connection?.saveData === true;
+
+    if (video && !reduceMotion && !saveData) {
+        const start = () => {
+            const isDesktop = matchMedia("(min-width: 768px)").matches;
+            video.muted = true;
+            video.autoplay = true;
+            video.src = (isDesktop ? video.dataset.srcDesktop : video.dataset.srcMobile) ?? "";
+            video.addEventListener("playing", () => video.classList.remove("opacity-0"), { once: true });
+            video.play().catch(() => {});
+        };
+
+        // Chrome rimanda l'autoplay nelle schede in background: riprova quando la pagina torna visibile
+        document.addEventListener("visibilitychange", () => {
+            if (document.visibilityState === "visible" && video.src && video.paused) {
+                video.play().catch(() => {});
+            }
+        });
+
+        if (document.readyState === "complete") start();
+        else window.addEventListener("load", start, { once: true });
+    }
+</script>
 
 <style>
     @keyframes fadeInUp {

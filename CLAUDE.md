@@ -22,7 +22,7 @@ src/layouts/Layout.astro      head, favicon, font, SplashScreen
 src/pages/index.astro         unica pagina: Navbar → Hero → About → Specials → Gallery → Reviews → MenuCTA → Footer
 src/components/
   Navbar.astro                navbar fissa (si scurisce allo scroll) + menu mobile a scorrimento
-  Hero.astro       #home      video di sfondo (hero-bg.mp4 desktop / hero-bg-mobile.mp4 mobile), poster hero-bg.webp
+  Hero.astro       #home      poster <picture> (hero-poster*.webp = 1° frame) + video caricato via JS dopo load (hero-bg.mp4 / hero-bg-mobile.mp4)
   About.astro      #osteria   storia (Davide e Giusy) + foto
   Specials.astro   #specials  3 piatti del giorno con prezzi (array hardcoded)
   Gallery.astro    #gallery   masonry di 27 foto (array hardcoded, file in public/gallery/)
@@ -30,7 +30,7 @@ src/components/
   MenuCTA.astro    #prenota   CTA prenotazione (Google Reserve) + slideshow sfondo mobile / immagine fissa desktop
   Footer.astro     #contatti  orari, contatti, mappa Google embed, social, credits
   SplashScreen.astro          overlay logo solo alla prima visita della sessione (0.6s + 0.4s fade)
-public/                       asset statici (~18 MB: video hero 8 MB + 5.6 MB, gallery 3 MB)
+public/                       asset statici (video hero ~4 MB in tutto, gallery 3 MB)
 ```
 
 ## Dati e link chiave
@@ -60,7 +60,7 @@ Performance
 - [x] SplashScreen: solo prima visita della sessione (`sessionStorage` `cilea-splash`), ~1 s totale, saltato con `prefers-reduced-motion`
 - [x] Font: rimossi Fontsource (Playball/Montserrat), Noto Sans e Material Symbols (1,1 MB) → icone Lucide
 - [ ] Import `Image` inutilizzato in `Hero.astro`; immagini senza `width`/`height` (CLS), nessun uso di `astro:assets`
-- [ ] Video hero pesanti (8 MB / 5.6 MB)
+- [x] Video hero ricompressi (2,0 MB 720p / 1,9 MB 540×960 30fps), caricati dopo `load` dietro poster `<picture>`; niente video con reduced-motion/Save-Data
 
 Contenuti / UX / accessibilità
 - [ ] Orari contraddittori: "Lunedì - Domenica" + "Martedì: Chiuso"
