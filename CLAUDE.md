@@ -59,7 +59,7 @@ SEO
 - [x] `<h1>` nell'hero (con prefisso `sr-only` "Osteria Cilea…"); footer `h4` → `h3`
 - [x] Canonical, Open Graph/Twitter (`public/og-image.jpg` 1200×630), JSON-LD `Restaurant` in `Layout.astro` (`site` in astro.config)
 - [x] Dominio primario `www.osteriacilea.it` ovunque (verificato 15/10/2026)
-- [ ] Dopo il deploy: verificare con Google Rich Results Test
+- [x] Rich Results Test superato (15/10/2026): Local Business + Organization validi, nessun errore
 
 Performance
 - [x] SplashScreen: solo prima visita della sessione (`sessionStorage` `cilea-splash`), ~1 s totale, saltato con `prefers-reduced-motion`
