@@ -1,0 +1,155 @@
+---
+// Form di richiesta prenotazione: compone il messaggio e apre WhatsApp (wa.me) verso il gestore.
+// Nessun dato passa dal sito: il cliente invia il messaggio dalla propria app.
+import { MessageCircle } from "lucide-astro";
+
+const WHATSAPP_NUMBER = "393925922651";
+
+// Orari di arrivo proposti (aperti tutti i giorni 12:30–15:00 / 19:30–23:00)
+const slots = (from: string, to: string) => {
+    const toMin = (t: string) => Number(t.slice(0, 2)) * 60 + Number(t.slice(3));
+    const out: string[] = [];
+    for (let m = toMin(from); m <= toMin(to); m += 15) {
+        out.push(`${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`);
+    }
+    return out;
+};
+const lunch = slots("12:30", "14:15");
+const dinner = slots("19:30", "22:15");
+
+const fieldBase =
+    "w-full rounded-lg bg-white/90 dark:bg-white/10 border border-white/30 py-3 text-neutral-text dark:text-white placeholder:text-neutral-500 dark:placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-primary";
+const field = `${fieldBase} px-4`;
+const fieldCompact = `${fieldBase} px-3`;
+const label = "block text-sm font-bold text-white mb-1";
+---
+
+<form
+    id="whatsapp-booking"
+    data-number={WHATSAPP_NUMBER}
+    class="w-full md:w-[26rem] space-y-4"
+    novalidate
+>
+    <div>
+        <label for="wb-name" class={label}>Nome</label>
+        <input id="wb-name" name="name" type="text" autocomplete="name" required class={field} placeholder="Mario Rossi" />
+    </div>
+
+    <div class="grid grid-cols-5 gap-3">
+        <div class="col-span-3">
+            <label for="wb-date" class={label}>Data</label>
+            <input id="wb-date" name="date" type="date" required class={fieldCompact} />
+        </div>
+        <div class="col-span-2">
+            <label for="wb-people" class={label}>Persone</label>
+            <select id="wb-people" name="people" required class={fieldCompact}>
+                {Array.from({ length: 12 }, (_, i) => i + 1).map((n) => (
+                    <option value={n} selected={n === 2}>{n}</option>
+                ))}
+                <option value="più di 12">più di 12</option>
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <label for="wb-time" class={label}>Orario</label>
+        <select id="wb-time" name="time" required class={field}>
+            <option value="" disabled selected>Scegli un orario</option>
+            <optgroup label="Pranzo">
+                {lunch.map((t) => <option value={t}>{t}</option>)}
+            </optgroup>
+            <optgroup label="Cena">
+                {dinner.map((t) => <option value={t}>{t}</option>)}
+            </optgroup>
+        </select>
+    </div>
+
+    <div>
+        <label for="wb-notes" class={label}>Note <span class="font-normal text-white/70">(facoltative)</span></label>
+        <textarea
+            id="wb-notes"
+            name="notes"
+            rows="2"
+            class={field}
+            placeholder="Allergie, seggiolone, occasione speciale…"></textarea>
+    </div>
+
+    <p id="wb-error" class="hidden text-sm font-bold text-white bg-primary/80 rounded-lg px-3 py-2" role="alert"></p>
+
+    <button
+        type="submit"
+        class="w-full bg-[#25D366] text-[#0b3d1f] px-6 py-4 rounded-xl font-bold text-lg shadow-lg hover:brightness-105 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3 active:scale-95"
+    >
+        <MessageCircle class="w-6 h-6" aria-hidden="true" />
+        Prenota su WhatsApp
+    </button>
+    <p class="text-xs text-center text-white/80">
+        Si apre WhatsApp con il messaggio già pronto: basta premere invia. Ti confermiamo noi la prenotazione.
+    </p>
+</form>
+
+<script>
+    const form = document.getElementById("whatsapp-booking") as HTMLFormElement | null;
+    const error = document.getElementById("wb-error");
+
+    if (form) {
+        const dateInput = form.elements.namedItem("date") as HTMLInputElement;
+        const pad = (n: number) => String(n).padStart(2, "0");
+        const todayISO = (d: Date) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+        dateInput.min = todayISO(new Date());
+
+        const showError = (message: string) => {
+            if (!error) return;
+            error.textContent = message;
+            error.classList.remove("hidden");
+        };
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            error?.classList.add("hidden");
+
+            const now = new Date();
+            const today = todayISO(now);
+            const data = new FormData(form);
+            const name = String(data.get("name") ?? "").trim();
+            const date = String(data.get("date") ?? "");
+            const time = String(data.get("time") ?? "");
+            const people = String(data.get("people") ?? "");
+            const notes = String(data.get("notes") ?? "").trim();
+
+            if (!name || !date || !time) {
+                showError("Inserisci nome, data e orario.");
+                return;
+            }
+            if (date < today) {
+                showError("La data è già passata.");
+                return;
+            }
+            if (date === today && time <= `${pad(now.getHours())}:${pad(now.getMinutes())}`) {
+                showError("L'orario scelto per oggi è già passato.");
+                return;
+            }
+
+            const [y, m, d] = date.split("-").map(Number);
+            const prettyDate = new Date(y, m - 1, d).toLocaleDateString("it-IT", {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+            });
+
+            const lines = [
+                "Ciao Osteria Cilea! Vorrei prenotare un tavolo:",
+                "",
+                `👤 Nome: ${name}`,
+                `📅 Data: ${prettyDate}`,
+                `🕐 Orario: ${time}`,
+                `👥 Persone: ${people}`,
+            ];
+            if (notes) lines.push(`📝 Note: ${notes}`);
+            lines.push("", "Grazie!");
+
+            const url = `https://wa.me/${form.dataset.number}?text=${encodeURIComponent(lines.join("\n"))}`;
+            window.open(url, "_blank", "noopener");
+        });
+    }
+</script>

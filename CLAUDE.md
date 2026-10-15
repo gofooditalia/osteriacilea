@@ -31,7 +31,8 @@ src/components/
   Specials.astro   #specials  3 piatti del giorno con prezzi (array hardcoded)
   Gallery.astro    #gallery   masonry di 27 foto (array di nomi file → src/assets/gallery/ via import.meta.glob)
   Reviews.astro    #recensioni 6 recensioni reali Google/TheFork (array hardcoded; niente schema Review: self-serving non ammesso da Google)
-  MenuCTA.astro    #prenota   CTA prenotazione (Google Reserve) + slideshow sfondo mobile / immagine fissa desktop
+  MenuCTA.astro    #prenota   form WhatsAppBooking (principale) + link Google Reserve/TheFork + telefono; slideshow sfondo mobile / immagine fissa desktop
+  WhatsAppBooking.astro       form prenotazione → apre wa.me/393925922651 con messaggio precompilato (nessun backend, nessun dato salvato). Fasce orarie arrivo: 12:30–14:15 / 19:30–22:15
   Footer.astro     #contatti  orari, contatti, mappa Google embed, social, credits
   SplashScreen.astro          overlay logo solo alla prima visita della sessione (0.6s + 0.4s fade)
 public/                       asset statici (video hero ~4 MB in tutto, gallery 3 MB)
@@ -42,7 +43,7 @@ public/                       asset statici (video hero ~4 MB in tutto, gallery 
 - Telefono: +39 392 592 2651 (ripetuto a mano in Footer e MenuCTA)
 - Instagram: https://www.instagram.com/osteriacilea/ — Facebook: profile.php?id=61585332472816
 - Menu: `/menu` → redirect 302 a https://gofoodmenu.it/osteria-cilea (definito in `astro.config.mjs`)
-- Prenotazioni: link Google Reserve in `MenuCTA.astro`
+- Prenotazioni: form WhatsApp (principale) + Google Reserve (fornitore TheFork) in `MenuCTA.astro`
 - Google Maps: https://maps.app.goo.gl/q6tiBoJyQDYVJGnv9 — Lascia recensione: https://g.page/r/CQ-qVW7iWy7TEBM/review
 - Orari: fonte = scheda Google Business. Aperti tutti i giorni 12:30–15:00 / 19:30–23:00 (direttiva del gestore, Google aggiornato il 15/10/2026). Fascia prezzo Google: 10-20 € a persona. Ripetuti in Footer e JSON-LD (Layout.astro)
 
