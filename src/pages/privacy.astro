@@ -1,0 +1,157 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+const lastUpdate = "15 ottobre 2026";
+---
+
+<Layout
+	title="Privacy e Cookie Policy | Osteria Cilea"
+	description="Informativa sul trattamento dei dati personali e sull'uso dei cookie del sito di Osteria Cilea, Palermo."
+	splash={false}
+>
+	<Navbar />
+	<main>
+		<header class="bg-bg-dark text-white pt-36 pb-16 px-6">
+			<div class="max-w-3xl mx-auto space-y-3">
+				<h1 class="text-4xl md:text-5xl font-bold font-display">Privacy e Cookie Policy</h1>
+				<p class="text-white/60 italic">Ultimo aggiornamento: {lastUpdate}</p>
+			</div>
+		</header>
+
+		<article class="policy max-w-3xl mx-auto px-6 py-16 text-neutral-text dark:text-white/85">
+			<p>
+				Questa informativa descrive come vengono trattati i dati personali di chi visita il sito
+				<strong>www.osteriacilea.it</strong>, ai sensi dell'art. 13 del Regolamento (UE) 2016/679
+				("GDPR") e del D.Lgs. 196/2003 ("Codice Privacy").
+			</p>
+
+			<h2>1. Titolare del trattamento</h2>
+			<p>
+				<strong>Davide Terrasi</strong>, ditta individuale che gestisce Osteria Cilea<br />
+				Sede legale: Via Don Michele Rua 1, 90124 Palermo (PA)<br />
+				P.IVA 07367400822<br />
+				Email: <a href="mailto:osteriacilea@gmail.com">osteriacilea@gmail.com</a><br />
+				PEC: <a href="mailto:osteriacilea@pec.it">osteriacilea@pec.it</a>
+			</p>
+
+			<h2>2. Quali dati trattiamo e perché</h2>
+
+			<h3>Dati di navigazione</h3>
+			<p>
+				Come ogni sito web, il server che ospita il sito registra automaticamente alcuni dati tecnici
+				(indirizzo IP, tipo di browser, pagina richiesta, data e ora). Servono esclusivamente a far
+				funzionare il sito e a garantirne la sicurezza, non vengono usati per identificare i visitatori
+				né per finalità di marketing. Base giuridica: legittimo interesse del titolare (art. 6.1.f GDPR).
+			</p>
+
+			<h3>Dati che ci comunichi tu</h3>
+			<p>
+				Se ci contatti per telefono, email o tramite i nostri profili social, trattiamo i dati che ci
+				fornisci (ad esempio nome, recapito, data e numero di persone per una prenotazione) solo per
+				risponderti e gestire la tua richiesta. Base giuridica: esecuzione di misure precontrattuali o
+				contrattuali richieste da te (art. 6.1.b GDPR).
+			</p>
+
+			<h3>Prenotazioni online</h3>
+			<p>
+				Il pulsante "Prenota Ora" ti porta sul servizio di prenotazione di Google e dei suoi partner di
+				prenotazione, che trattano i tuoi dati come titolari autonomi secondo le proprie informative.
+				Noi riceviamo i dati necessari a gestire la prenotazione (nome, recapito, data, orario e numero
+				di persone).
+			</p>
+
+			<h2>3. Cookie e archiviazione locale</h2>
+			<p>
+				Il sito <strong>non usa cookie di profilazione né cookie statistici</strong>, e al caricamento
+				della pagina non contatta servizi esterni: testi, immagini, video e caratteri tipografici sono
+				serviti direttamente dal nostro hosting. Per questo non è necessario un banner per il consenso.
+			</p>
+			<ul>
+				<li>
+					<strong>Archiviazione tecnica di sessione</strong> (<code>cilea-splash</code>): ricorda che
+					hai già visto l'animazione iniziale, per non mostrartela di nuovo. Non contiene dati
+					personali e viene cancellata quando chiudi la scheda del browser.
+				</li>
+				<li>
+					<strong>Google Maps</strong>: la mappa nel fondo pagina viene caricata solo se clicchi su
+					"Mostra la mappa". Da quel momento Google può impostare i propri cookie, come descritto
+					nella <a href="https://policies.google.com/privacy?hl=it" target="_blank" rel="noopener noreferrer"
+						>privacy policy di Google</a
+					>.
+				</li>
+				<li>
+					<strong>Link esterni</strong>: i link a Instagram, Facebook, Google (recensioni,
+					prenotazioni, mappe) e al menu digitale portano su siti di terzi, che applicano le proprie
+					informative e i propri cookie.
+				</li>
+			</ul>
+
+			<h2>4. A chi comunichiamo i dati</h2>
+			<p>
+				Il sito è ospitato da <strong>Vercel Inc.</strong> (Stati Uniti), che tratta i dati di
+				navigazione in qualità di responsabile del trattamento. Il trasferimento dei dati verso gli
+				Stati Uniti avviene sulla base dell'EU-U.S. Data Privacy Framework e/o delle clausole
+				contrattuali standard approvate dalla Commissione europea. I dati non vengono venduti né ceduti
+				a terzi per finalità di marketing.
+			</p>
+
+			<h2>5. Per quanto tempo li conserviamo</h2>
+			<p>
+				I dati di navigazione sono conservati dal fornitore di hosting per il tempo strettamente
+				necessario alla sicurezza e al funzionamento del servizio. I dati legati a contatti e
+				prenotazioni sono conservati per il tempo necessario a gestire la richiesta e ad adempiere
+				eventuali obblighi di legge.
+			</p>
+
+			<h2>6. I tuoi diritti</h2>
+			<p>
+				In ogni momento puoi chiedere l'accesso ai tuoi dati, la rettifica, la cancellazione, la
+				limitazione del trattamento, la portabilità, oppure opporti al trattamento (artt. 15-22 GDPR),
+				scrivendo a <a href="mailto:osteriacilea@gmail.com">osteriacilea@gmail.com</a>. Se ritieni che
+				il trattamento violi la normativa, puoi presentare reclamo al
+				<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer"
+					>Garante per la protezione dei dati personali</a
+				>.
+			</p>
+		</article>
+
+		<Footer />
+	</main>
+</Layout>
+
+<style>
+	.policy > * + * {
+		margin-top: 1rem;
+	}
+	.policy h2 {
+		margin-top: 2.5rem;
+		font-size: 1.5rem;
+		font-weight: 700;
+	}
+	.policy h3 {
+		margin-top: 1.5rem;
+		font-size: 1.125rem;
+		font-weight: 700;
+	}
+	.policy p,
+	.policy li {
+		line-height: 1.75;
+	}
+	.policy ul {
+		list-style: disc;
+		padding-left: 1.25rem;
+	}
+	.policy li + li {
+		margin-top: 0.75rem;
+	}
+	.policy a {
+		color: var(--color-primary);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+	.policy code {
+		font-size: 0.875em;
+	}
+</style>

@@ -6,6 +6,8 @@ Comunicazione con Giorgio: **in italiano**, diretta, niente giri di parole.
 - Repo: https://github.com/gofooditalia/osteriacilea (branch `main`)
 - Produzione: https://www.osteriacilea.it (dominio primario; `osteriacilea.it` fa redirect 307 a `www`) — deploy automatico su **Vercel** a ogni push su `main`
 - Credits nel footer: "Developed by" + logo GO!Food Italia → https://gofoodmenu.it (non usare il nome personale)
+- Titolare: Davide Terrasi (ditta individuale), sede legale Via Don Michele Rua 1, 90124 Palermo, P.IVA 07367400822 (in footer e /privacy), email osteriacilea@gmail.com, PEC osteriacilea@pec.it. Non pubblicare codice fiscale
+- URL senza slash finale (`trailingSlash: 'never'`)
 
 ## Stack
 
@@ -20,7 +22,8 @@ Comunicazione con Giorgio: **in italiano**, diretta, niente giri di parole.
 
 ```
 src/layouts/Layout.astro      head, favicon, font, SplashScreen
-src/pages/index.astro         unica pagina: Navbar → Hero → About → Specials → Gallery → Reviews → MenuCTA → Footer
+src/pages/index.astro         home: Navbar → Hero → About → Specials → Gallery → Reviews → MenuCTA → Footer
+src/pages/privacy.astro       privacy e cookie policy (Layout con splash={false})
 src/components/
   Navbar.astro                navbar fissa (si scurisce allo scroll) + menu mobile a scorrimento
   Hero.astro       #home      poster <picture> (hero-poster*.webp = 1° frame) + video caricato via JS dopo load (hero-bg.mp4 / hero-bg-mobile.mp4)
@@ -46,7 +49,7 @@ public/                       asset statici (video hero ~4 MB in tutto, gallery 
 ## Design
 
 - Colori (`global.css`): primary `#ec3713` (rosso), olive `#556b2f`, bg-light `#fdfaf6`, bg-dark `#1a0f0d`, testo `#181211`; testo secondario `#896861` (hardcoded)
-- Font: solo **Noto Serif** (`font-display`, 400/700/400 italic) da Google Fonts
+- Font: solo **Noto Serif** (`font-display`, 400/700/400 italic) self-hosted via `@fontsource/noto-serif`
 - Le classi `dark:` sono presenti e seguono `prefers-color-scheme` (nessun toggle).
 
 ## Problemi noti / backlog (analisi 15/10/2026)
@@ -65,7 +68,8 @@ Performance
 
 Contenuti / UX / accessibilità
 - [x] Orari allineati a Google, blocco orari del footer linka alla scheda Maps
-- [ ] Privacy Policy e Termini puntano a `#` (serve almeno privacy/cookie policy: mappa Google embed)
+- [x] Pagina `/privacy` (privacy + cookie policy, art. 13 GDPR) — bozza da far verificare a un consulente; "Termini e Condizioni" rimosso (nessuna vendita online)
+- [x] Nessuna risorsa esterna al caricamento: Noto Serif self-hosted (Fontsource), mappa Google caricata solo al clic → niente banner cookie. Se si aggiunge un servizio terzo (analytics, pixel, embed) va aggiornata la policy e serve un banner di consenso
 - [x] Telefono in MenuCTA cliccabile
 - [x] Link social con `aria-label` e `rel`; iframe mappa con `title`
 - [ ] Verificare resa in dark mode su mobile

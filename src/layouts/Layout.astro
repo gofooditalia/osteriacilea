@@ -1,18 +1,26 @@
 ---
+import "@fontsource/noto-serif/400.css";
+import "@fontsource/noto-serif/700.css";
+import "@fontsource/noto-serif/400-italic.css";
 import "../styles/global.css";
 
 import SplashScreen from "../components/SplashScreen.astro";
+
+const SITE_DESCRIPTION =
+	"Osteria Cilea a Palermo, in Via Francesco Cilea 79: cucina siciliana di tradizione, piatti del giorno e ricette di famiglia. Prenota il tuo tavolo online.";
 
 interface Props {
 	title: string;
 	description?: string;
 	image?: string;
+	splash?: boolean;
 }
 
 const {
 	title,
-	description = "Osteria Cilea a Palermo, in Via Francesco Cilea 79: cucina siciliana di tradizione, piatti del giorno e ricette di famiglia. Prenota il tuo tavolo online.",
+	description = SITE_DESCRIPTION,
 	image = "/og-image.jpg",
+	splash = true,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -23,10 +31,10 @@ const restaurantSchema = {
 	"@type": "Restaurant",
 	"@id": new URL("/#restaurant", Astro.site).href,
 	name: "Osteria Cilea",
-	url: canonicalURL.href,
+	url: new URL("/", Astro.site).href,
 	image: imageURL.href,
 	logo: new URL("/favicon-512x512.png", Astro.site).href,
-	description,
+	description: SITE_DESCRIPTION,
 	telephone: "+39 392 592 2651",
 	address: {
 		"@type": "PostalAddress",
@@ -113,17 +121,11 @@ const restaurantSchema = {
 		<meta name="twitter:image" content={imageURL} />
 
 		<script type="application/ld+json" set:html={JSON.stringify(restaurantSchema)} />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap"
-			rel="stylesheet"
-		/>
 	</head>
 	<body
 		class="bg-bg-light dark:bg-bg-dark text-neutral-text font-display transition-colors duration-300"
 	>
-		<SplashScreen />
+		{splash && <SplashScreen />}
 		<slot />
 	</body>
 </html>
