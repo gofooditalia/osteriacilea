@@ -29,7 +29,7 @@ src/components/
   Reviews.astro    #recensioni 6 recensioni reali Google/TheFork (array hardcoded; niente schema Review: self-serving non ammesso da Google)
   MenuCTA.astro    #prenota   CTA prenotazione (Google Reserve) + slideshow sfondo mobile / immagine fissa desktop
   Footer.astro     #contatti  orari, contatti, mappa Google embed, social, credits
-  SplashScreen.astro          overlay logo all'avvio (~1–1.5s + 0.8s fade)
+  SplashScreen.astro          overlay logo solo alla prima visita della sessione (0.6s + 0.4s fade)
 public/                       asset statici (~18 MB: video hero 8 MB + 5.6 MB, gallery 3 MB)
 ```
 
@@ -57,7 +57,7 @@ SEO
 - [ ] Dopo il deploy: verificare con Google Rich Results Test
 
 Performance
-- [ ] SplashScreen ritarda la visualizzazione di 1,5–2,3 s a ogni visita (LCP)
+- [x] SplashScreen: solo prima visita della sessione (`sessionStorage` `cilea-splash`), ~1 s totale, saltato con `prefers-reduced-motion`
 - [ ] Font inutili: rimuovere import Fontsource non usati; Material Symbols (font intero) usato solo per `arrow_forward` ed `event` → sostituire con Lucide
 - [ ] Import `Image` inutilizzato in `Hero.astro`; immagini senza `width`/`height` (CLS), nessun uso di `astro:assets`
 - [ ] Video hero pesanti (8 MB / 5.6 MB)

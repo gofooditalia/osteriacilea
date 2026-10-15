@@ -2,6 +2,21 @@
 
 ---
 
+<script is:inline>
+    // Splash solo alla prima visita della sessione e mai con "riduci movimento".
+    // Gira prima che l'overlay venga disegnato, quindi niente flash.
+    try {
+        if (
+            sessionStorage.getItem("cilea-splash") ||
+            matchMedia("(prefers-reduced-motion: reduce)").matches
+        ) {
+            document.documentElement.classList.add("no-splash");
+        } else {
+            sessionStorage.setItem("cilea-splash", "1");
+        }
+    } catch (e) {}
+</script>
+
 <div
     id="splash-screen"
     class="fixed inset-0 z-[100] flex items-center justify-center bg-[#181211] overflow-hidden"
@@ -60,42 +75,35 @@
     }
 
     .animate-splash-logo {
-        animation: splashLogo 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        animation: splashLogo 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     }
 
     .animate-splash-text {
-        animation: splashText 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        animation-delay: 0.5s;
+        animation: splashText 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        animation-delay: 0.2s;
+    }
+
+    :global(.no-splash) #splash-screen {
+        display: none;
     }
 
     .fade-out {
-        animation: fadeOut 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        animation: fadeOut 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     }
 </style>
 
 <script>
     const splashScreen = document.getElementById("splash-screen");
 
-    // Prevent scrolling initially
-    document.body.style.overflow = "hidden";
+    if (splashScreen && !document.documentElement.classList.contains("no-splash")) {
+        document.body.style.overflow = "hidden";
 
-    function dismissSplash() {
-        if (!splashScreen || splashScreen.classList.contains("fade-out")) return;
-        splashScreen.classList.add("fade-out");
         setTimeout(() => {
-            document.body.style.overflow = "";
-            splashScreen.style.display = "none";
-        }, 800);
-    }
-
-    // Safety timeout: dismiss after 1.5s max regardless of network
-    setTimeout(dismissSplash, 1500);
-
-    if (document.readyState === "complete" || document.readyState === "interactive") {
-        setTimeout(dismissSplash, 1000);
-    } else {
-        document.addEventListener("DOMContentLoaded", () => {
-            setTimeout(dismissSplash, 1000);
-        });
+            splashScreen.classList.add("fade-out");
+            setTimeout(() => {
+                document.body.style.overflow = "";
+                splashScreen.style.display = "none";
+            }, 400);
+        }, 600);
     }
 </script>
