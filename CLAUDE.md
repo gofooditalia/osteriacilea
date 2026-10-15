@@ -41,7 +41,7 @@ public/                       asset statici (video hero ~4 MB in tutto, gallery 
 - Menu: `/menu` → redirect 302 a https://gofoodmenu.it/osteria-cilea (definito in `astro.config.mjs`)
 - Prenotazioni: link Google Reserve in `MenuCTA.astro`
 - Google Maps: https://maps.app.goo.gl/q6tiBoJyQDYVJGnv9 — Lascia recensione: https://g.page/r/CQ-qVW7iWy7TEBM/review
-- Orari (Footer): 12:30–15:00 / 19:30–23:00, martedì chiuso
+- Orari: fonte = scheda Google Business. Aperti tutti i giorni 12:30–15:00 / 19:30–23:30 (martedì cena fino alle 23:00 su Google, verificato 15/10/2026). Ripetuti in Footer e JSON-LD (Layout.astro)
 
 ## Design
 
@@ -64,10 +64,10 @@ Performance
 - [x] Video hero ricompressi (2,0 MB 720p / 1,9 MB 540×960 30fps), caricati dopo `load` dietro poster `<picture>`; niente video con reduced-motion/Save-Data
 
 Contenuti / UX / accessibilità
-- [ ] Orari contraddittori: "Lunedì - Domenica" + "Martedì: Chiuso"
+- [x] Orari allineati a Google, blocco orari del footer linka alla scheda Maps
 - [ ] Privacy Policy e Termini puntano a `#` (serve almeno privacy/cookie policy: mappa Google embed)
-- [ ] Telefono in MenuCTA non cliccabile (`tel:`)
-- [ ] Link social senza `aria-label` e `rel="noopener noreferrer"`
+- [x] Telefono in MenuCTA cliccabile
+- [x] Link social con `aria-label` e `rel`; iframe mappa con `title`
 - [ ] Verificare resa in dark mode su mobile
 
 Pulizia
