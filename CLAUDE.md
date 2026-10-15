@@ -49,7 +49,7 @@ public/                       asset statici (video hero ~4 MB in tutto, gallery 
 
 ## Design
 
-- Colori (`global.css`): primary `#ec3713` (rosso), olive `#556b2f`, bg-light `#fdfaf6`, bg-dark `#1a0f0d`, testo `#181211`; testo secondario `#896861` (hardcoded)
+- Colori (`global.css`): primary `#ec3713` (rosso), olive `#556b2f` (in dark mode `olive-light` `#9cb86a` per testo/bordi), bg-light `#fdfaf6`, bg-dark `#1a0f0d`, testo `#181211`; testo secondario `#896861` (hardcoded)
 - Font: solo **Noto Serif** (`font-display`, 400/700/400 italic) self-hosted via `@fontsource/noto-serif`
 - Le classi `dark:` sono presenti e seguono `prefers-color-scheme` (nessun toggle).
 
@@ -73,7 +73,7 @@ Contenuti / UX / accessibilità
 - [x] Nessuna risorsa esterna al caricamento: Noto Serif self-hosted (Fontsource), mappa Google caricata solo al clic → niente banner cookie. Se si aggiunge un servizio terzo (analytics, pixel, embed) va aggiornata la policy e serve un banner di consenso
 - [x] Telefono in MenuCTA cliccabile
 - [x] Link social con `aria-label` e `rel`; iframe mappa con `title`
-- [ ] Verificare resa in dark mode su mobile
+- [x] Dark mode su mobile verificata (15/10/2026): pulsanti outline oliva schiariti con `olive-light`
 
 Pulizia
 - [ ] File residui in root: `stitch_home.html` (mockup iniziale) e `menu-osteria-cilea.pdf`
