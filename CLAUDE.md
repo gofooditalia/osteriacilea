@@ -11,7 +11,7 @@ Comunicazione con Giorgio: **in italiano**, diretta, niente giri di parole.
 
 - **Astro 5** (`astro.config.mjs`) con adapter `@astrojs/vercel`; nessuna pagina SSR, tutto statico
 - **Tailwind CSS 4** via `@tailwindcss/vite`; tema definito in `src/styles/global.css` (`@theme`)
-- Icone: `lucide-astro` (+ Material Symbols da Google Fonts per 2 icone)
+- Icone: solo `lucide-astro`
 - TypeScript strict (`astro/tsconfigs/strict`)
 - Comandi: `npm run dev` (localhost:4321), `npm run build`, `npm run preview`
 
@@ -45,7 +45,7 @@ public/                       asset statici (~18 MB: video hero 8 MB + 5.6 MB, g
 ## Design
 
 - Colori (`global.css`): primary `#ec3713` (rosso), olive `#556b2f`, bg-light `#fdfaf6`, bg-dark `#1a0f0d`, testo `#181211`; testo secondario `#896861` (hardcoded)
-- Font effettivi: **Noto Serif** (`font-display`) e Noto Sans da Google Fonts. Playball/Montserrat sono importati via Fontsource ma non usati.
+- Font: solo **Noto Serif** (`font-display`, 400/700/400 italic) da Google Fonts
 - Le classi `dark:` sono presenti e seguono `prefers-color-scheme` (nessun toggle).
 
 ## Problemi noti / backlog (analisi 15/10/2026)
@@ -58,7 +58,7 @@ SEO
 
 Performance
 - [x] SplashScreen: solo prima visita della sessione (`sessionStorage` `cilea-splash`), ~1 s totale, saltato con `prefers-reduced-motion`
-- [ ] Font inutili: rimuovere import Fontsource non usati; Material Symbols (font intero) usato solo per `arrow_forward` ed `event` → sostituire con Lucide
+- [x] Font: rimossi Fontsource (Playball/Montserrat), Noto Sans e Material Symbols (1,1 MB) → icone Lucide
 - [ ] Import `Image` inutilizzato in `Hero.astro`; immagini senza `width`/`height` (CLS), nessun uso di `astro:assets`
 - [ ] Video hero pesanti (8 MB / 5.6 MB)
 
@@ -71,7 +71,7 @@ Contenuti / UX / accessibilità
 
 Pulizia
 - [ ] File residui in root: `stitch_home.html` (mockup iniziale) e `menu-osteria-cilea.pdf`
-- [ ] README cita tipografia Playball/Montserrat (non più vera)
+- [x] README tipografia aggiornata
 
 ## Convenzioni
 

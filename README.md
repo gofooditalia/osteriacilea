@@ -11,7 +11,7 @@ Il progetto è costruito utilizzando le tecnologie web più moderne per garantir
 - **Framework**: [Astro 5](https://astro.build/) - Framework web ultra-veloce orientato ai contenuti.
 - **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) - Engine CSS utility-first per un design moderno e reattivo.
 - **Icons**: [Lucide Astro](https://lucide.dev/) - Set di icone pulite ed eleganti.
-- **Typography**: [Fontsource](https://fontsource.org/) - Gestione self-hosted dei font Google (Playball, Montserrat).
+- **Typography**: Noto Serif via Google Fonts; icone con [Lucide](https://lucide.dev/) (`lucide-astro`).
 - **Language**: [TypeScript](https://www.typescriptlang.org/) - Per un codice robusto e manutenibile.
 
 ## 🚀 Struttura del Progetto
