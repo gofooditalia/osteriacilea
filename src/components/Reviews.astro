@@ -1,0 +1,120 @@
+---
+import { Star, Quote } from "lucide-astro";
+
+// Recensioni reali da Google e TheFork (ottobre 2026). Estratti con "…" dove il testo è più lungo.
+const reviews = [
+    {
+        text: "Ho festeggiato con la famiglia la laurea di mio figlio. Abbiamo mangiato benissimo, antipasti vari in porzioni abbondanti, caldi e con cibo di qualità…",
+        author: "Daniela B.",
+        source: "Google",
+        score: "4/5",
+        stars: 4,
+    },
+    {
+        text: "Ambienti puliti e accoglienti, si riesce a parlare tra commensali anche a sala piena. Servizio attento al cliente e singoli piatti stra-abbondanti. Prezzi inferiori alla media, meritano sicuramente altre visite.",
+        author: "Cliente TheFork",
+        source: "TheFork",
+        score: "9/10",
+        stars: 5,
+    },
+    {
+        text: "An excellent restaurant!! The clam soup and the meatballs (sweet and sour) were wonderful. Later, the calamari dish and the tiramisu continued the superb culinary experience. Thank you!",
+        author: "בני ל.",
+        source: "Google",
+        score: "5/5",
+        stars: 5,
+    },
+    {
+        text: "Cibo molto buono, cucina casalinga di qualità… porzioni enormi!!! Personale attento e gentile.",
+        author: "Cliente TheFork",
+        source: "TheFork",
+        score: "9,5/10",
+        stars: 5,
+    },
+    {
+        text: "Primi piatti abbondanti. Scelta di vini ottima e a buon prezzo…",
+        author: "Marco L.",
+        source: "Google",
+        score: "5/5",
+        stars: 5,
+    },
+    {
+        text: "Ormai questo locale è una certezza, personale sempre gentile e disponibile, cibo come sempre ottimo e abbondante…",
+        author: "Cliente TheFork",
+        source: "TheFork",
+        score: "9/10",
+        stars: 5,
+    },
+];
+---
+
+<section id="recensioni" class="bg-[#f0ece7] dark:bg-[#2a1b18] py-24">
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-10">
+        <div class="text-center mb-12 space-y-4">
+            <h2
+                class="text-4xl md:text-5xl font-bold tracking-tight text-neutral-text dark:text-white font-display"
+            >
+                Dicono di Noi
+            </h2>
+            <p
+                class="text-[#896861] dark:text-[#a1928e] max-w-xl mx-auto italic text-lg"
+            >
+                Le parole di chi si è seduto alla nostra tavola.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {
+                reviews.map((review) => (
+                    <figure class="flex flex-col gap-4 bg-bg-light dark:bg-bg-dark p-6 rounded-xl shadow-sm">
+                        <div class="flex items-center justify-between">
+                            <div
+                                class="flex gap-0.5 text-primary"
+                                aria-label={`Valutazione ${review.score}`}
+                            >
+                                {Array.from({ length: 5 }, (_, i) => (
+                                    <Star
+                                        class="w-4 h-4"
+                                        fill={i < review.stars ? "currentColor" : "none"}
+                                        aria-hidden="true"
+                                    />
+                                ))}
+                            </div>
+                            <Quote class="w-6 h-6 text-primary/20" aria-hidden="true" />
+                        </div>
+                        <blockquote class="flex-1 text-neutral-text dark:text-white/90 italic leading-relaxed">
+                            “{review.text}”
+                        </blockquote>
+                        <figcaption class="flex items-center justify-between text-sm">
+                            <span class="font-bold text-neutral-text dark:text-white">
+                                {review.author}
+                            </span>
+                            <span class="text-[#896861] dark:text-[#a1928e]">
+                                {review.source} · {review.score}
+                            </span>
+                        </figcaption>
+                    </figure>
+                ))
+            }
+        </div>
+
+        <div class="mt-12 flex flex-wrap justify-center gap-4">
+            <a
+                href="https://maps.app.goo.gl/q6tiBoJyQDYVJGnv9"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block border-2 border-olive text-olive hover:bg-olive hover:text-white px-8 py-3 rounded-lg font-bold transition-all uppercase tracking-wider text-sm"
+            >
+                Leggi tutte su Google
+            </a>
+            <a
+                href="https://g.page/r/CQ-qVW7iWy7TEBM/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block bg-primary text-white hover:bg-primary/90 px-8 py-3 rounded-lg font-bold transition-all uppercase tracking-wider text-sm"
+            >
+                Lascia una recensione
+            </a>
+        </div>
+    </div>
+</section>

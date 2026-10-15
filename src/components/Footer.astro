@@ -1,5 +1,5 @@
 ---
-import { Instagram, Facebook } from "lucide-astro";
+import { Instagram, Facebook, Star } from "lucide-astro";
 ---
 
 <footer id="contatti" class="bg-bg-dark text-white py-16">
@@ -37,11 +37,11 @@ import { Instagram, Facebook } from "lucide-astro";
                 </div>
             </div>
             <div>
-                <h4
+                <h3
                     class="font-bold mb-6 uppercase text-xs tracking-widest text-primary"
                 >
                     Orari
-                </h4>
+                </h3>
                 <ul class="text-sm text-white/60 space-y-2">
                     <li>Lunedì - Domenica:</li>
                     <li>12:30 - 15:00 / 19:30 - 23:00</li>
@@ -49,11 +49,11 @@ import { Instagram, Facebook } from "lucide-astro";
                 </ul>
             </div>
             <div>
-                <h4
+                <h3
                     class="font-bold mb-6 uppercase text-xs tracking-widest text-primary"
                 >
                     Contatti
-                </h4>
+                </h3>
                 <ul class="text-sm text-white/60 space-y-2">
                     <li>Via Francesco Cilea, 79</li>
                     <li>90144 Palermo, Italia</li>
@@ -64,14 +64,25 @@ import { Instagram, Facebook } from "lucide-astro";
                             >+39 392 592 2651</a
                         >
                     </li>
+                    <li class="pt-2">
+                        <a
+                            href="https://g.page/r/CQ-qVW7iWy7TEBM/review"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-1.5 text-white/80 hover:text-primary transition-colors"
+                        >
+                            <Star class="w-4 h-4" />
+                            Lascia una recensione su Google
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div>
-                <h4
+                <h3
                     class="font-bold mb-6 uppercase text-xs tracking-widest text-primary"
                 >
                     Dove Siamo
-                </h4>
+                </h3>
                 <div
                     class="w-full h-32 bg-white/10 rounded-lg overflow-hidden grayscale contrast-125 opacity-70 hover:opacity-100 transition-opacity"
                 >
