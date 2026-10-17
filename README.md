@@ -32,4 +32,4 @@ Il progetto è costruito utilizzando le tecnologie web più moderne per garantir
 
 ## 👨‍💻 Developed by
 
-Sviluppato con passione da [GO!Food Italia](https://gofoodmenu.it).
+Sito realizzato da [GO!Food Italia](https://gofood.it).

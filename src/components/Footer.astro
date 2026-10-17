@@ -2,7 +2,7 @@
 import { Instagram, Facebook, Star, ExternalLink, MapPin } from "lucide-astro";
 ---
 
-<footer id="contatti" class="bg-bg-dark text-white py-16">
+<footer id="contatti" class="bg-bg-dark text-white pt-16 pb-4">
     <div class="max-w-[1200px] mx-auto px-6 lg:px-10">
         <div
             class="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-white/10 pb-12"
@@ -136,31 +136,27 @@ import { Instagram, Facebook, Star, ExternalLink, MapPin } from "lucide-astro";
             <p>
                 © {new Date().getFullYear()} Osteria Cilea di Davide Terrasi · P.IVA 07367400822
             </p>
-            <div class="flex items-center gap-6">
-                <div class="flex items-center gap-2 group">
-                    <span>Developed by</span>
-                    <a
-                        href="https://gofoodmenu.it"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="flex items-center gap-1.5 hover:opacity-100 transition-opacity"
-                    >
-                        <img
-                            src="/gofood.svg"
-                            alt="GO!Food Italia"
-                            width="20"
-                            height="20"
-                            class="h-5 w-auto"
-                        />
-                    </a>
-                </div>
-                <div class="h-3 w-[1px] bg-white/10 hidden md:block"></div>
-                <div class="flex gap-6">
-                    <a class="hover:text-primary transition-colors" href="/privacy"
-                        >Privacy e Cookie Policy</a
-                    >
-                </div>
-            </div>
+            <a class="hover:text-primary transition-colors" href="/privacy"
+                >Privacy e Cookie Policy</a
+            >
+        </div>
+        <div class="mt-8 pt-3 border-t border-white/10 flex justify-center">
+            <a
+                href="https://gofood.it"
+                target="_blank"
+                rel="noopener"
+                title="GO!Food Italia – software e siti web a Palermo"
+                class="flex items-center gap-1 text-[10px] text-white/35 hover:text-white/80 transition-colors"
+            >
+                <span class="whitespace-nowrap">Sito realizzato da</span>
+                <img
+                    src="/gofood.svg"
+                    alt="GO!Food Italia"
+                    width="26"
+                    height="20"
+                    class="h-5 w-auto shrink-0 opacity-80"
+                />
+            </a>
         </div>
     </div>
 </footer>

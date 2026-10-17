@@ -5,7 +5,7 @@ Comunicazione con Giorgio: **in italiano**, diretta, niente giri di parole.
 
 - Repo: https://github.com/gofooditalia/osteriacilea (branch `main`)
 - Produzione: https://www.osteriacilea.it (dominio primario; `osteriacilea.it` e `osteriacilea.vercel.app` fanno redirect 308 permanente a `www`, impostato su Vercel → Settings → Domains) — deploy automatico su **Vercel** a ogni push su `main`
-- Credits nel footer: "Developed by" + logo GO!Food Italia → https://gofoodmenu.it (non usare il nome personale)
+- Credits: fascia sottile in fondo al footer, "Sito realizzato da" + logo GO! FOOD (`public/gofood.svg`, GO! bianco/FOOD arancione) → https://gofood.it (non usare il nome personale). Stesso formato degli altri siti GO!Food Italia
 - Titolare: Davide Terrasi (ditta individuale), sede legale Via Don Michele Rua 1, 90124 Palermo, P.IVA 07367400822 (in footer e /privacy), email osteriacilea@gmail.com, PEC osteriacilea@pec.it. Non pubblicare codice fiscale
 - URL senza slash finale (`trailingSlash: 'never'`)
 
